@@ -53,5 +53,6 @@
 		<smtpPassword>test</smtpPassword>
 		<pointType>orderAmount</pointType>
 		<pointScale>1</pointScale>
+		<isInstalled>true</isInstalled>
 	</systemConfig>
 </shopxx>
