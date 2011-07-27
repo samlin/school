@@ -12,14 +12,6 @@
 <script type="text/javascript">
 $().ready(function() {
 
-	// 删除确认对话框
-	$(".deleteAction").click( function() {
-		if (confirm("您确定要删除此商品分类吗？") == false) {
-			return false;
-		}
-	});
-	
-	
 
 })
 </script>
@@ -35,9 +27,7 @@ $().ready(function() {
 			</div>
 			<table class="listTable">
 				<tr>
-					<th>
-						班级Id&nbsp;
-					</th>
+					
 					<th>
 						班级名&nbsp;
 					</th>
@@ -55,10 +45,6 @@ $().ready(function() {
 				<#list lxClassList as list>
 					<tr>
 						<td >
-								${list.id}
-							
-						</td>
-						<td >
 								${list.name}
 						</td>
 						<td>
@@ -68,11 +54,9 @@ $().ready(function() {
 							${list.teacherId}
 						</td>
 						<td>
-							<a href="${base}/shop/product!list.action?id=${list.id}" target="_blank" title="查看">[查看]</a>
-						
-								<a href="product_category!delete.action?id=${list.id}" class="deleteAction" title="删除" >[删除]</a>
+							<a href="lx_class!delete.action?id=${list.id}" class="deleteAction" title="删除" >[删除]</a>
 							
-							<a href="product_category!edit.action?id=${list.id}" title="编辑">[编辑]</a>
+							<a href="lx_class!edit.action?id=${list.id}" title="编辑">[编辑]</a>
 						</td>
 					</tr>
 				</#list>

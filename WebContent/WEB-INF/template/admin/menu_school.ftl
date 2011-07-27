@@ -19,15 +19,18 @@
 				<a href="lx_class!list.action" target="mainFrame">班级列表</a>
 			</dd>
 			<dd>
-				<a href="system_config!edit.action" target="mainFrame">新增班级</a>
+				<a href="lx_class!add.action" target="mainFrame">新增班级</a>
 			</dd>
 		</dl>
 		<dl>
 			<dt>
-				<span>支付管理</span>
+				<span>学生管理</span>
 			</dt>
 			<dd>
-				<a href="payment_config!list.action" target="mainFrame">支付方式</a>
+				<a href="student!list.action" target="mainFrame">学生列表</a>
+			</dd>
+			<dd>
+				<a href="student!add.action" target="mainFrame">新建学生</a>
 			</dd>
 		</dl>
 		<dl>

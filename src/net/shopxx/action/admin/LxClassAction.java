@@ -34,11 +34,8 @@ import com.opensymphony.xwork2.validator.annotations.Validations;
 public class LxClassAction extends BaseAdminAction {
 
 	private static final long serialVersionUID = 3066159260207583127L;
-	
-	private String parentId;
-	private ProductCategory productCategory;
-	private List<ProductCategory> productCategoryTreeList;
 	private List<LxClass> lxClassList;
+	private LxClass lxClass;
 
 	@Resource
 	private LxClassService lxClassService;
@@ -50,7 +47,7 @@ public class LxClassAction extends BaseAdminAction {
 
 	// 编辑
 	public String edit() {
-//		productCategory = productCategoryService.load(id);
+		setLxClass(lxClassService.load(id));
 		return INPUT;
 	}
 
@@ -61,34 +58,22 @@ public class LxClassAction extends BaseAdminAction {
 
 	// 删除
 	public String delete() {
-//		ProductCategory productCategory = productCategoryService.load(id);
-//		Set<ProductCategory> childrenProductCategorySet = productCategory.getChildren();
-//		redirectionUrl = "product_category!list.action";
-//		if (childrenProductCategorySet != null && childrenProductCategorySet.size() > 0) {
-//			addActionError("此商品分类存在下级分类，删除失败!");
-//			return ERROR;
-//		}
-//		Set<Product> productSet = productCategory.getProductSet();
-//		if (productSet != null && productSet.size() > 0) {
-//			addActionError("此商品分类下存在商品，删除失败!");
-//			return ERROR;
-//		}
-//		productCategoryService.delete(id);
+		lxClassService.delete(id);
 		return SUCCESS;
 	}
 
 	// 保存
-	@Validations(
-		requiredStrings = { 
-			@RequiredStringValidator(fieldName = "productCategory.name", message = "分类名称不允许为空!")
-		}, 
-		requiredFields = { 
-			@RequiredFieldValidator(fieldName = "productCategory.orderList", message = "排序不允许为空!")
-		},
-		intRangeFields = {
-			@IntRangeFieldValidator(fieldName = "productCategory.orderList", min = "0", message = "排序必须为零或正整数!")
-		}
-	)
+//	@Validations(
+//		requiredStrings = { 
+//			@RequiredStringValidator(fieldName = "productCategory.name", message = "分类名称不允许为空!")
+//		}, 
+//		requiredFields = { 
+//			@RequiredFieldValidator(fieldName = "productCategory.orderList", message = "排序不允许为空!")
+//		},
+//		intRangeFields = {
+//			@IntRangeFieldValidator(fieldName = "productCategory.orderList", min = "0", message = "排序必须为零或正整数!")
+//		}
+//	)
 	@InputConfig(resultName = "error")
 	public String save() {
 //		if (StringUtils.isNotEmpty(parentId)) {
@@ -97,70 +82,49 @@ public class LxClassAction extends BaseAdminAction {
 //		} else {
 //			productCategory.setParent(null);
 //		}
-//		productCategoryService.save(productCategory);
-//		redirectionUrl = "product_category!list.action";
+		lxClassService.save(getLxClass());
+		redirectionUrl = "lx_class!list.action";
 		return SUCCESS;
 	}
 
 	// 更新
-	@Validations(
-		requiredStrings = { 
-			@RequiredStringValidator(fieldName = "productCategory.name", message = "分类名称不允许为空!")
-		}, 
-		requiredFields = { 
-			@RequiredFieldValidator(fieldName = "productCategory.orderList", message = "排序不允许为空!")
-		},
-		intRangeFields = {
-			@IntRangeFieldValidator(fieldName = "productCategory.orderList", min = "0", message = "排序必须为零或正整数!")
-		}
-	)
+//	@Validations(
+//		requiredStrings = { 
+//			@RequiredStringValidator(fieldName = "productCategory.name", message = "分类名称不允许为空!")
+//		}, 
+//		requiredFields = { 
+//			@RequiredFieldValidator(fieldName = "productCategory.orderList", message = "排序不允许为空!")
+//		},
+//		intRangeFields = {
+//			@IntRangeFieldValidator(fieldName = "productCategory.orderList", min = "0", message = "排序必须为零或正整数!")
+//		}
+//	)
 	@InputConfig(resultName = "error")
 	public String update() {
 //		ProductCategory persistent = productCategoryService.load(id);
 //		BeanUtils.copyProperties(productCategory, persistent, new String[]{"id", "createDate", "modifyDate", "path", "parent", "children", "productSet"});
-//		productCategoryService.update(persistent);
-//		redirectionUrl = "product_category!list.action";
+		LxClass lxClass2 = getLxClass();
+		lxClass2.setId(id);
+		lxClassService.update(lxClass2);
+		redirectionUrl = "lx_class!list.action";
 		return SUCCESS;
 	}
 
-	public String getParentId() {
-		return parentId;
-	}
-
-	public void setParentId(String parentId) {
-		this.parentId = parentId;
-	}
-
-	public ProductCategory getProductCategory() {
-		return productCategory;
-	}
-
-	public void setProductCategory(ProductCategory productCategory) {
-		this.productCategory = productCategory;
-	}
-
-//	public List<ProductCategory> getProductCategoryTreeList() {
-//		productCategoryTreeList = productCategoryService.getProductCategoryTreeList();
-//		return productCategoryTreeList;
-//	}
-
-	public void setProductCategoryTreeList(List<ProductCategory> productCategoryTreeList) {
-		this.productCategoryTreeList = productCategoryTreeList;
-	}
-
 	public List<LxClass> getLxClassList() {
-		lxClassList=new LinkedList<LxClass>();
-		LxClass lxClass=new LxClass();
-		lxClass.setId("10001");
-		lxClass.setName("1001");
-		lxClass.setDescs("这是新建的班级");
-		lxClassList.add(lxClass);
 		lxClassList=lxClassService.getAll();
 		return lxClassList;
 	}
 
 	public void setLxClassList(List<LxClass> lxClassList) {
 		this.lxClassList = lxClassList;
+	}
+
+	public LxClass getLxClass() {
+		return lxClass;
+	}
+
+	public void setLxClass(LxClass lxClass) {
+		this.lxClass = lxClass;
 	}
 
 }
