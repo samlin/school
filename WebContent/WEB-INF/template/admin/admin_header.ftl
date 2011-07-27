@@ -21,7 +21,7 @@
 		<div class="headerTop">
 			<div class="headerLink">
 				<span class="welcome">
-					<strong><@sec.authentication property="name" /></strong>&nbsp;您好!&nbsp;
+					<strong><@sec.authentication property="name" /></strong>&nbsp;您好samlintest!&nbsp;
 				</span>
 				<a href="admin!index.action" target="mainFrame">后台首页</a>|
             	<a href="http://bbs.shopxx.net" target="_blank">技术支持</a>|
@@ -39,6 +39,7 @@
 	                <li><a href="menu!member.action" target="menuFrame" hidefocus="true">会员管理</a></li>
 	                <li><a href="menu!content.action" target="menuFrame" hidefocus="true">页面内容</a></li>
 	                <li><a href="menu!admin.action" target="menuFrame" hidefocus="true">管理员</a></li>
+	                <li><a href="menu!school.action" target="menuFrame" hidefocus="true">学校管理</a></li>
 	                <li><a href="menu!setting.action" target="menuFrame" hidefocus="true">网站设置</a></li>
 	                <li class="home"><a href="${base}/" target="_blank" hidefocus="true"></a></li>
 	            </ul>

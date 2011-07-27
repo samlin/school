@@ -97,6 +97,7 @@
 				<value>net.shopxx.entity.Order</value>
 				<value>net.shopxx.entity.OrderItem</value>
 				<value>net.shopxx.entity.OrderLog</value>
+				<value>net.shopxx.entity.LxClass</value>
 			</list>
 		</property>
 	</bean>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>${productCategory.name} 商品列表 - Powered By ${systemConfig.systemName}</title>
+<title>${productCategory.name} 商品列表ftl - Powered By ${systemConfig.systemName}</title>
 <meta name="Author" content="SHOP++ Team" />
 <meta name="Copyright" content="SHOP++" />
 <#if (productCategory.metaKeywords)! != ""><meta name="keywords" content="${productCategory.metaKeywords}" /></#if>

@@ -2,7 +2,7 @@
 <shopxx>
 	<description>SHOP++配置文件</description>
 	<systemConfig>
-		<systemName>SHOP++</systemName>
+		<systemName>Apple shop</systemName>
 		<systemVersion>V2010</systemVersion>
 		<systemDescription>SHOP++是基于JAVA技术的开源网店系统，主要应用于电子商务领域内的网上购物、网上交易、交易信息发布等系统的构建。致力于为个人和企业提供安全、稳定、高效、强大的电子商务解决方案，并推进国内电子商务技术和开源技术的发展而不断努力。</systemDescription>
 		<isInstalled>false</isInstalled>

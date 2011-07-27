@@ -64,5 +64,9 @@ public class MenuAction extends BaseAdminAction {
 	public String header() {
 		return "header";
 	}
+	
+	public String school() {
+		return "school";
+	}
 
 }

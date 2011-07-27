@@ -17,7 +17,7 @@
 		</div>
 		<form id="listForm" action="product!list.action" method="post">
 			<div class="operateBar">
-				<input type="button" class="addButton" onclick="location.href='product!add.action'" value="添加商品" />
+				<input type="button" class="addButton" onclick="location.href='product!add.action'" value="添加商品samlin" />
 				<label>查找:</label>
 				<select name="pager.property">
 					<option value="name" <#if pager.property == "name">selected="selected" </#if>>

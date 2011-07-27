@@ -1,14 +1,848 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<title>正在跳转...</title>
-		<meta name="Author" content="SHOP++ Team" />
-		<meta name="Copyright" content="SHOP++" />
-		<link rel="icon" href="favicon.ico" type="image/x-icon" />
-		<meta http-equiv="refresh" content="3; url=admin/install!license.action" />
-	</head>
-	<body>
-		若您尚未安装SHOP++程序，请根据提示进行安装操作！若您已成功安装，请进行后台生成首页！
-	</body>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>SHOP++体验商城 - Powered By SHOP++</title>
+<meta name="Author" content="SHOP++ Team" />
+<meta name="Copyright" content="SHOP++" />
+<meta name="keywords" content="SHOP++体验商城" />
+<meta name="description" content="SHOP++是基于JAVA技术的开源网店系统，主要应用于电子商务领域内的网上购物、网上交易、交易信息发布等系统的构建。致力于为个人和企业提供安全、稳定、高效、强大的电子商务解决方案，并推进国内电子商务技术和开源技术的发展而不断努力。" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link href="/template/common/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/template/common/css/jquery.datepicker.css" rel="stylesheet" type="text/css" />
+<link href="/template/common/css/jquery.zoomimage.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/template/common/js/jquery.js"></script>
+<script type="text/javascript" src="/template/common/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/template/common/js/jquery.form.js"></script>
+<script type="text/javascript" src="/template/common/js/jquery.metadata.js"></script>
+<script type="text/javascript" src="/template/common/js/jquery.validate.js"></script>
+<script type="text/javascript" src="/template/common/js/jquery.validate.methods.js"></script>
+<script type="text/javascript" src="/template/common/js/jquery.validate.cn.js"></script>
+<script type="text/javascript" src="/template/common/js/jquery.dimensions.js"></script>
+<script type="text/javascript" src="/template/common/js/jquery.jqDnR.js"></script>
+<script type="text/javascript" src="/template/common/js/jquery.jqModal.js"></script>
+<script type="text/javascript" src="/template/common/js/jquery.tools.js"></script>
+<script type="text/javascript" src="/template/common/js/jquery.qtip.js"></script>
+<script type="text/javascript" src="/template/common/js/jquery.pager.js"></script>
+<script type="text/javascript" src="/template/common/js/jquery.livequery.js"></script>
+<script type="text/javascript" src="/template/common/js/jquery.superfish.js"></script>
+<script type="text/javascript" src="/template/common/js/jquery.hoverIntent.js"></script>
+<script type="text/javascript" src="/template/common/js/jquery.datepicker.js"></script>
+<script type="text/javascript" src="/template/common/js/jquery.bCheckbox.js"></script>
+<script type="text/javascript" src="/template/common/js/jquery.lSelect.js"></script>
+<script type="text/javascript" src="/template/common/js/jquery.ajaxfileupload.js"></script>
+<script type="text/javascript" src="/template/common/js/jquery.zoomimage.js"></script>
+<script type="text/javascript" src="/template/common/tiny_mce/jquery.tinymce.js"></script>
+<!--[if lte IE 6]>
+<script type="text/javascript" src="/template/common/js/belatedPNG.js"></script>
+<![endif]-->
+<script type="text/javascript" src="/template/common/js/base.js"></script><link href="/template/shop/css/login.css" rel="stylesheet" type="text/css" />
+<link href="/template/shop/css/register.css" rel="stylesheet" type="text/css" />
+<link href="/template/shop/css/index.css" rel="stylesheet" type="text/css" />
+<link href="/template/shop/css/product.css" rel="stylesheet" type="text/css" />
+<link href="/template/shop/css/article.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/template/shop/js/login.js"></script>
+<script type="text/javascript" src="/template/shop/js/register.js"></script>
+<script type="text/javascript" src="/template/shop/js/index.js"></script>
+<script type="text/javascript" src="/template/shop/js/product.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+	$(".slider .scrollable").scrollable({
+		circular: true,
+		speed: 500
+	}).autoscroll({
+		autoplay: true,
+		interval: 4000
+	}).navigator();
+	
+	$(".hotProduct .scrollable").scrollable({
+		circular: true,
+		speed: 500
+	});
+	
+	$(".newProduct ul.newProductTab").tabs(".newProduct .newProductTabContent", {
+		effect: "fade",// 逐渐显示动画
+		fadeInSpeed: 500,// 动画显示速度
+		event: "mouseover"// 触发tab切换的事件
+	});
+
+})
+</script>
+</head>
+<body class="index">
+<script type="text/javascript" src="/template/shop/js/header.js"></script>
+<link href="/template/shop/css/header.css" rel="stylesheet" type="text/css" />
+<div class="header png">
+	<div class="headerTop png">
+		<div class="headerTopContent">
+			<div class="headerLoginInfo">
+				您好<span id="headerLoginMemberUsername"></span>，欢迎来到SHOP++体验商城！
+				<a href="#" id="headerShowLoginWindow" class="showLoginWindow">登录</a>
+				<a href="/shop/member_center!index.action" id="headerMemberCenter">会员中心</a>
+				<a href="#" id="headerShowRegisterWindow" class="showRegisterWindow">注册</a>
+				<a href="/shop/member!logout.action" id="headerLogout">[退出]</a>
+			</div>
+			<div class="headerTopNav">
+					<a href="javascript: addFavorite('http://www.shopxx.cn','SHOP++体验商城')">收藏本站</a>
+					|
+					<a href="/shop/article!list.action?id=402881882ba8455f012ba86db8560006">帮助中心</a>
+					|
+					<a href="/html/article_content/201010/5010509a555548939840a3103d3cea71.html">联系我们</a>
+					|
+					<a href="http://bbs.shopxx.net" target="_blank">SHOP++论坛</a>
+					|
+					<a href="http://www.shopxx.net" target="_blank">SHOP++官方网站</a>
+					
+			</div>
+		</div>
+	</div>
+	<div class="headerMiddle">
+		<div class="headerInfo">
+			7×24小时服务热线：<strong>400-8888888</strong>
+		</div>
+		<div class="headerLogo">
+			<a href="/"><img class="png" src="/upload/image/logo.gif" title="SHOP++体验商城" /></a>
+		</div>
+		<div class="headerSearch png">
+			<form id="productSearchForm" action="/shop/product!search.action" method="get">
+				<div class="headerSearchText">
+					<input type="text" id="productSearchKeyword" name="pager.keyword" value="请输入关键词..."}" />
+				</div>
+				<input type="submit" class="headerSearchButton" value="" />
+				<div class="hotKeyword">
+					热门关键词: 
+						<a href="/shop/product!search.action?pager.keyword=%E5%84%BF%E7%AB%A5">儿童</a>
+						<a href="/shop/product!search.action?pager.keyword=%E7%89%9B%E4%BB%94%E8%A3%A4">牛仔裤</a>
+						<a href="/shop/product!search.action?pager.keyword=%E8%BF%9E%E8%A1%A3%E8%A3%99">连衣裙</a>
+						<a href="/shop/product!search.action?pager.keyword=%E9%82%A6%E5%A8%81">邦威</a>
+						<a href="/shop/product!search.action?pager.keyword=%E9%9E%8B">鞋</a>
+						<a href="/shop/product!search.action?pager.keyword=%E5%8C%85">包</a>
+						<a href="/shop/product!search.action?pager.keyword=%E8%A1%AC%E8%A1%AB">衬衫</a>
+						<a href="/shop/product!search.action?pager.keyword=%E8%A3%99">裙</a>
+						<a href="/shop/product!search.action?pager.keyword=%E5%86%85%E8%A1%A3">内衣</a>
+						<a href="/shop/product!search.action?pager.keyword=%E8%A3%A4">裤</a>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="headerBottom">
+		<input type="button" class="cartItemListButton showCartItemList" value="" onclick="window.open('/shop/cart_item!list.action')" />
+		<ul id="cartItemListDetail"></ul>
+		<input type="button" class="orderButton" value="" onclick="window.open('/shop/cart_item!list.action')" />
+		<div class="headerMiddleNav">
+			<div class="headerMiddleNavLeft png"></div>
+			<ul class="headerMiddleNavContent png">
+					<li>
+						<a href="/">首页</a>
+					</li>
+					<li>
+						<a href="/shop/product!list.action?id=402881882ba8753a012ba9545eb901c1">潮流女装</a>
+					</li>
+					<li>
+						<a href="/shop/product!list.action?id=402881882ba8753a012ba952154601c0">魅力男装</a>
+					</li>
+					<li>
+						<a href="/shop/product!list.action?id=402881882ba8753a012ba95d56ae01cc">时尚鞋包</a>
+					</li>
+					<li>
+						<a href="/shop/product!list.action?id=402881882ba8753a012ba955ca2001c4">童装母婴</a>
+					</li>
+					<li>
+						<a href="/shop/product!list.action?id=402881882ba8753a012ba954f95301c2">精美配饰</a>
+					</li>
+					<li>
+						<a href="/shop/product!list.action?id=402881882badb4ed012badbb47bc0004">家具用品</a>
+					</li>
+			</ul>
+			<div class="headerMiddleNavRight png"></div>
+		</div>
+	</div>
+</div>	<div class="body">
+		<div class="bodyLeft">
+			<div class="productCategory">
+            	<div class="top">商品分类</div>
+            	<div class="middle clearfix">
+            		<ul class="menu">
+            				<li class="mainCategory">
+								<a href="/shop/product!list.action?id=402881882ba8753a012ba9545eb901c1">潮流女装</a>
+							</li>
+									<li>
+										<a href="/shop/product!list.action?id=402881882ba8753a012ba959deed01c8"><span class="icon">&nbsp;</span>上装</a>
+											<ul>
+													<li>
+														<a href="/shop/product!list.action?id=402881882badb4ed012badbc8b970007"><span class="icon">&nbsp;</span>针织衫</a>
+													</li>
+													<li>
+														<a href="/shop/product!list.action?id=402881882badb4ed012badc339000010"><span class="icon">&nbsp;</span>风衣</a>
+													</li>
+													<li>
+														<a href="/shop/product!list.action?id=402881882bb2c00c012bb2d0d9e20008"><span class="icon">&nbsp;</span>衬衫</a>
+													</li>
+											</ul>
+									</li>
+									<li>
+										<a href="/shop/product!list.action?id=402881882ba8753a012ba95a25d901c9"><span class="icon">&nbsp;</span>下装</a>
+											<ul>
+													<li>
+														<a href="/shop/product!list.action?id=402881882badb4ed012badbe55f6000b"><span class="icon">&nbsp;</span>牛仔裤</a>
+													</li>
+													<li>
+														<a href="/shop/product!list.action?id=402881882badb4ed012badc435040011"><span class="icon">&nbsp;</span>时装裤</a>
+													</li>
+											</ul>
+									</li>
+									<li>
+										<a href="/shop/product!list.action?id=402881882bb2c00c012bb2ca78180001"><span class="icon">&nbsp;</span>裙服</a>
+											<ul>
+													<li>
+														<a href="/shop/product!list.action?id=402881882bb2c00c012bb2d143990009"><span class="icon">&nbsp;</span>连衣裙</a>
+													</li>
+													<li>
+														<a href="/shop/product!list.action?id=402881882bb2c00c012bb2d1afd0000a"><span class="icon">&nbsp;</span>短裙</a>
+													</li>
+											</ul>
+									</li>
+									<li>
+										<a href="/shop/product!list.action?id=402881882ba8753a012ba95b38d001ca"><span class="icon">&nbsp;</span>内衣服</a>
+											<ul>
+													<li>
+														<a href="/shop/product!list.action?id=402881882badb4ed012badbcf9d10008"><span class="icon">&nbsp;</span>内衣</a>
+													</li>
+													<li>
+														<a href="/shop/product!list.action?id=402881882badb4ed012badbd1e030009"><span class="icon">&nbsp;</span>睡衣</a>
+													</li>
+													<li>
+														<a href="/shop/product!list.action?id=402881882badb4ed012badbe041d000a"><span class="icon">&nbsp;</span>内裤</a>
+													</li>
+											</ul>
+									</li>
+									<li>
+										<a href="/shop/product!list.action?id=402881882bb2c00c012bb2ddb237000e"><span class="icon">&nbsp;</span>运动套装</a>
+									</li>
+            				<li class="mainCategory">
+								<a href="/shop/product!list.action?id=402881882ba8753a012ba952154601c0">魅力男装</a>
+							</li>
+									<li>
+										<a href="/shop/product!list.action?id=402881882ba8753a012ba959283f01c5"><span class="icon">&nbsp;</span>上装</a>
+											<ul>
+													<li>
+														<a href="/shop/product!list.action?id=402881882badb4ed012badbc062a0005"><span class="icon">&nbsp;</span>西服</a>
+													</li>
+													<li>
+														<a href="/shop/product!list.action?id=402881882badb4ed012badbc379b0006"><span class="icon">&nbsp;</span>毛衣</a>
+													</li>
+											</ul>
+									</li>
+									<li>
+										<a href="/shop/product!list.action?id=402881882ba8753a012ba9595c4f01c6"><span class="icon">&nbsp;</span>下装</a>
+											<ul>
+													<li>
+														<a href="/shop/product!list.action?id=402881882bb2c00c012bb2cedd660003"><span class="icon">&nbsp;</span>牛仔裤</a>
+													</li>
+													<li>
+														<a href="/shop/product!list.action?id=402881882bb2c00c012bb2cf0f830004"><span class="icon">&nbsp;</span>西裤</a>
+													</li>
+											</ul>
+									</li>
+									<li>
+										<a href="/shop/product!list.action?id=402881882ba8753a012ba9599d2101c7"><span class="icon">&nbsp;</span>运动套装</a>
+									</li>
+									<li>
+										<a href="/shop/product!list.action?id=402881882bb2c00c012bb2ce22060002"><span class="icon">&nbsp;</span>内衣服</a>
+											<ul>
+													<li>
+														<a href="/shop/product!list.action?id=402881882bb2c00c012bb2cfc9da0005"><span class="icon">&nbsp;</span>内衣</a>
+													</li>
+													<li>
+														<a href="/shop/product!list.action?id=402881882bb2c00c012bb2cffa7f0006"><span class="icon">&nbsp;</span>内裤</a>
+													</li>
+													<li>
+														<a href="/shop/product!list.action?id=402881882bb2c00c012bb2d0412d0007"><span class="icon">&nbsp;</span>睡衣</a>
+													</li>
+											</ul>
+									</li>
+									<li>
+										<a href="/shop/product!list.action?id=402881882bb2c00c012bb2de90fe000f"><span class="icon">&nbsp;</span>袜类</a>
+									</li>
+            				<li class="mainCategory">
+								<a href="/shop/product!list.action?id=402881882ba8753a012ba95d56ae01cc">时尚鞋包</a>
+							</li>
+									<li>
+										<a href="/shop/product!list.action?id=402881882ba8753a012ba96010dd01cf"><span class="icon">&nbsp;</span>靓鞋</a>
+											<ul>
+													<li>
+														<a href="/shop/product!list.action?id=402881882badb4ed012badbf611d000c"><span class="icon">&nbsp;</span>单鞋</a>
+													</li>
+													<li>
+														<a href="/shop/product!list.action?id=402881882badb4ed012badbf89a4000d"><span class="icon">&nbsp;</span>运动鞋</a>
+													</li>
+													<li>
+														<a href="/shop/product!list.action?id=402881882badb4ed012badbfaf2d000e"><span class="icon">&nbsp;</span>皮鞋</a>
+													</li>
+											</ul>
+									</li>
+									<li>
+										<a href="/shop/product!list.action?id=402881882ba8753a012ba96049b001d0"><span class="icon">&nbsp;</span>精品包</a>
+											<ul>
+													<li>
+														<a href="/shop/product!list.action?id=402881882bb2c00c012bb2d2ad5a000b"><span class="icon">&nbsp;</span>手提包</a>
+													</li>
+													<li>
+														<a href="/shop/product!list.action?id=402881882bb2c00c012bb2d381a2000c"><span class="icon">&nbsp;</span>钱包</a>
+													</li>
+											</ul>
+									</li>
+					</ul>
+            	</div>
+                <div class="bottom"></div>
+			</div>
+		</div>
+		<div class="bodyRight">
+			<div class="slider">
+				<div class="scrollable">
+					<div class="items">
+						<div>
+							<img src="/upload/image/banner1.jpg" />
+						</div>
+						<div>
+							<img src="/upload/image/banner2.jpg" />
+						</div>
+						<div>
+							<img src="/upload/image/banner3.jpg" />
+						</div>
+					</div>
+					<div class="navi"></div>
+					<div class="prevNext">
+						<a class="prev browse left"></a>
+						<a class="next browse right"></a>
+					</div>
+				</div>
+			</div>
+			<div class="blank"></div>
+			<div class="hotProduct">
+				<div class="title">
+					<strong>热卖商品</strong>HOT
+				</div>
+				<a class="prev browse"></a>
+				<div class="scrollable">
+					<div class="items">
+								<div>
+								<ul>
+							<li>
+								<a href="/html/product_content/201010/4de5bce34cdf42f18badc87c99ef2b9d.html">
+									<img src="/upload/image/201010/5ecee757b11341faa60b110406f7103e_thumbnail.jpg" alt="10新款秋装英伦休闲纯棉V领撞色针织衫毛衫毛衣" />
+										<p title="10新款秋装英伦休闲纯棉V领撞色针织衫毛衫毛衣">10新款秋装英伦休闲...</p>
+								</a>
+							</li>
+							<li>
+								<a href="/html/product_content/201010/dd17736a25294d19b721bfe28eafb69f.html">
+									<img src="/upload/image/201010/5c76e81eff5c44bcbcbd4c3df96a8e84_thumbnail.jpg" alt="2010新款春夏装 必备韩版流行时尚百搭玫瑰花苞连衣裙" />
+										<p title="2010新款春夏装 必备韩版流行时尚百搭玫瑰花苞连衣裙">2010新款春夏装 ...</p>
+								</a>
+							</li>
+							<li>
+								<a href="/html/product_content/201010/853e4d3f61104f478a0cfbd47e3d764e.html">
+									<img src="/upload/image/201010/06065e15324443f286a41f3940d30175_thumbnail.jpg" alt="正品私宠时装裤" />
+										<p title="正品私宠时装裤">正品私宠时装裤</p>
+								</a>
+							</li>
+							<li>
+								<a href="/html/product_content/201010/4345b17a65ca4b6aabf1f8a701f2aba0.html">
+									<img src="/upload/image/201010/959d92afb5104803810b807603801529_thumbnail.jpg" alt="2010秋冬装新款 韩版中腰铅笔修身牛仔裤 女靴裤 小脚裤" />
+										<p title="2010秋冬装新款 韩版中腰铅笔修身牛仔裤 女靴裤 小脚裤">2010秋冬装新款 ...</p>
+								</a>
+							</li>
+								</ul>
+								</div>
+								<div>
+								<ul>
+							<li>
+								<a href="/html/product_content/201010/a54c461332e54688ac7dbc34471fc68e.html">
+									<img src="/upload/image/201010/b7212b14a7774274911f92b77832e527_thumbnail.jpg" alt="铁艺蜡烛台00224 婚庆用品 烛光晚餐" />
+										<p title="铁艺蜡烛台00224 婚庆用品 烛光晚餐">铁艺蜡烛台00224...</p>
+								</a>
+							</li>
+							<li>
+								<a href="/html/product_content/201010/d1e76a45cbe342dab3c984f488eba14f.html">
+									<img src="/upload/image/201010/2af572acf8a647d3a61728ba2e1ce781_thumbnail.jpg" alt="伊泰莲娜红苹果金底/银底优雅大珍珠/套装/耳环" />
+										<p title="伊泰莲娜红苹果金底/银底优雅大珍珠/套装/耳环">伊泰莲娜红苹果金底/...</p>
+								</a>
+							</li>
+							<li>
+								<a href="/html/product_content/201010/98d0aa750c9a4d2ca6d70a4cc76aa084.html">
+									<img src="/upload/image/201010/5c6bd7c628674feebc8097dc136c69e5_thumbnail.jpg" alt="比亲1015高硼硅宽口径玻璃奶瓶+母乳实感动感奶嘴" />
+										<p title="比亲1015高硼硅宽口径玻璃奶瓶+母乳实感动感奶嘴">比亲1015高硼硅宽...</p>
+								</a>
+							</li>
+							<li>
+								<a href="/html/product_content/201010/0a293605c4404ac8886cf585e15cd329.html">
+									<img src="/upload/image/201010/d2901a189c7d443ea3a76ec1c45e9acd_thumbnail.jpg" alt="泡沫之夏大S同款 绿蕾丝 绿丝带 发带" />
+										<p title="泡沫之夏大S同款 绿蕾丝 绿丝带 发带">泡沫之夏大S同款 绿...</p>
+								</a>
+							</li>
+								</ul>
+								</div>
+					</div>
+				</div>
+				<a class="next browse"></a>
+			</div>
+		</div>
+		<div class="blank"></div>
+		<img src="/upload/image/banner4.jpg" />
+		<div class="blank"></div>
+		<div class="newProduct">
+			<div class="left">
+				<ul class="newProductTab">
+						<li>
+							潮流女装
+						</li>
+						<li>
+							魅力男装
+						</li>
+						<li>
+							时尚鞋包
+						</li>
+						<li>
+							童装母婴
+						</li>
+				</ul>
+			</div>
+			<div class="right">
+					<ul class="newProductTabContent">
+							<li>
+								<a href="/html/product_content/201010/d6133758f03e4c119c368b47aff4b2a1.html">
+									<img src="/upload/image/201010/b6599af61ac64dadb98394f450437e9d_thumbnail.jpg" alt="韩版可爱甜美双排扣短外套" />
+										<p title="韩版可爱甜美双排扣短外套">韩版可爱甜美双排扣短...</p>
+								</a>
+							</li>
+							<li>
+								<a href="/html/product_content/201010/a1d6a2d2a49143acb9a52f49e177cd48.html">
+									<img src="/upload/image/201010/b5dd0d2624c54ef3a79b6ad81d7dff03_thumbnail.jpg" alt="O.SA欧莎2010冬经典束腰双排扣昵子大衣/外套" />
+										<p title="O.SA欧莎2010冬经典束腰双排扣昵子大衣/外套">O.SA欧莎2010...</p>
+								</a>
+							</li>
+							<li>
+								<a href="/html/product_content/201010/a0561935276b4e5a81243e11399bd590.html">
+									<img src="/upload/image/201010/fc63d57bd1984a6d90c9c1df4b65f95a_thumbnail.jpg" alt="2010 秋装新款女装连衣裙韩版 收腰大圆领连衣裙" />
+										<p title="2010 秋装新款女装连衣裙韩版 收腰大圆领连衣裙">2010 秋装新款女...</p>
+								</a>
+							</li>
+							<li>
+								<a href="/html/product_content/201010/149eb36f16934dbfaef4513b9302ded8.html">
+									<img src="/upload/image/201010/24bb00d774194eb6927e4575f698d4bf_thumbnail.jpg" alt="韩版秋装 假2件套 新款女装长款修身风衣 外套" />
+										<p title="韩版秋装 假2件套 新款女装长款修身风衣 外套">韩版秋装 假2件套 ...</p>
+								</a>
+							</li>
+					</ul>
+					<ul class="newProductTabContent">
+							<li>
+								<a href="/html/product_content/201010/37a29387674e471d93a434d3309ee9ed.html">
+									<img src="/upload/image/201010/af40cca663804e45a7c4adec0631fa1b_thumbnail.jpg" alt="新款 韩版西裤 休闲西裤 修身西裤 男装西裤" />
+										<p title="新款 韩版西裤 休闲西裤 修身西裤 男装西裤">新款 韩版西裤 休闲...</p>
+								</a>
+							</li>
+							<li>
+								<a href="/html/product_content/201010/e21cd4464c854db3bd2355b9c31d565b.html">
+									<img src="/upload/image/201010/09dfa2b6730e4e8f88509505d87ca6cc_thumbnail.jpg" alt="2010秋装款play川久保玲潮牌直筒 时尚休闲牛仔裤" />
+										<p title="2010秋装款play川久保玲潮牌直筒 时尚休闲牛仔裤">2010秋装款pla...</p>
+								</a>
+							</li>
+							<li>
+								<a href="/html/product_content/201010/0d3aa93c99a8468e8d67d25d9d314032.html">
+									<img src="/upload/image/201010/dc98c6bbb5444bc4a5d623f7a142bc7a_thumbnail.jpg" alt="阿迪达斯 adidas 男士 运动套装" />
+										<p title="阿迪达斯 adidas 男士 运动套装">阿迪达斯 adida...</p>
+								</a>
+							</li>
+							<li>
+								<a href="/html/product_content/201010/4de5bce34cdf42f18badc87c99ef2b9d.html">
+									<img src="/upload/image/201010/5ecee757b11341faa60b110406f7103e_thumbnail.jpg" alt="10新款秋装英伦休闲纯棉V领撞色针织衫毛衫毛衣" />
+										<p title="10新款秋装英伦休闲纯棉V领撞色针织衫毛衫毛衣">10新款秋装英伦休闲...</p>
+								</a>
+							</li>
+					</ul>
+					<ul class="newProductTabContent">
+							<li>
+								<a href="/html/product_content/201010/b3b268e12da948de86b68e2e56cff971.html">
+									<img src="/upload/image/201010/be7937230e5b473ba127fdfeaf725555_thumbnail.jpg" alt="新款凉鞋 高跟鞋" />
+										<p title="新款凉鞋 高跟鞋">新款凉鞋 高跟鞋</p>
+								</a>
+							</li>
+							<li>
+								<a href="/html/product_content/201010/7c179f618edb461d9d8c6eec87e76dcc.html">
+									<img src="/upload/image/201010/840731ab343944da925c11ab69e7e59d_thumbnail.jpg" alt="李宁网络经典复刻 男子跑步鞋" />
+										<p title="李宁网络经典复刻 男子跑步鞋">李宁网络经典复刻 男...</p>
+								</a>
+							</li>
+							<li>
+								<a href="/html/product_content/201010/d6ca717fa2af4f90a7d0ee4814b1936e.html">
+									<img src="/upload/image/201010/9fa177fb7c934af9a8c75aca004a7b9e_thumbnail.jpg" alt="美国苹果王/APPEAL 亮皮 真皮男士皮鞋 正装男鞋" />
+										<p title="美国苹果王/APPEAL 亮皮 真皮男士皮鞋 正装男鞋">美国苹果王/APPE...</p>
+								</a>
+							</li>
+							<li>
+								<a href="/html/product_content/201010/9247a7243b0847aea9d1d4d954f3cb98.html">
+									<img src="/upload/image/201010/6dea4a6f5b14460c80e3671cfe6bf803_thumbnail.jpg" alt="2010新款韩版 磨砂牛皮 流苏女靴 时尚气质平跟马靴短靴子" />
+										<p title="2010新款韩版 磨砂牛皮 流苏女靴 时尚气质平跟马靴短靴子">2010新款韩版 磨...</p>
+								</a>
+							</li>
+					</ul>
+					<ul class="newProductTabContent">
+							<li>
+								<a href="/html/product_content/201010/6c838d1223ce426d992b264ffebb5010.html">
+									<img src="/upload/image/201010/b774718867d54c40a7d9c338ce818f0b_thumbnail.jpg" alt="韩版新秋装 男童装 热卖 牛仔裤" />
+										<p title="韩版新秋装 男童装 热卖 牛仔裤">韩版新秋装 男童装 ...</p>
+								</a>
+							</li>
+							<li>
+								<a href="/html/product_content/201010/4e0515ec5d3f4bf7820f45b19ff2e6e8.html">
+									<img src="/upload/image/201010/a5e20c4f0fad4d6c9c0a285ba3cd58b8_thumbnail.jpg" alt="女童秋装连衣裙 春秋韩版马甲裙 正品 品牌童装" />
+										<p title="女童秋装连衣裙 春秋韩版马甲裙 正品 品牌童装">女童秋装连衣裙 春秋...</p>
+								</a>
+							</li>
+							<li>
+								<a href="/html/product_content/201010/f82d6264c5394306b5e42788b336f595.html">
+									<img src="/upload/image/201010/fb9ff6fb1dde46388375f7f64b7af0a6_thumbnail.jpg" alt="爱制造秋款 黑色有型的翻领 长袖童装T恤" />
+										<p title="爱制造秋款 黑色有型的翻领 长袖童装T恤">爱制造秋款 黑色有型...</p>
+								</a>
+							</li>
+							<li>
+								<a href="/html/product_content/201010/8d0177cfd1524332b2cb718debf471df.html">
+									<img src="/upload/image/201010/e8b2322db3544281965032a8e9688ba1_thumbnail.jpg" alt="童装秋装女童运动休闲套装长袖+长裤时尚连帽米奇图案蝴蝶结" />
+										<p title="童装秋装女童运动休闲套装长袖+长裤时尚连帽米奇图案蝴蝶结">童装秋装女童运动休闲...</p>
+								</a>
+							</li>
+					</ul>
+			</div>
+		</div>
+		<div class="blank"></div>
+		<div class="bodyLeft">
+			<div class="hotProduct">
+				<div class="top">热销排行</div>
+				<div class="middle clearfix">
+					<ul>
+							<li class="number1">
+									<span class="icon">&nbsp;</span><a href="/html/product_content/201010/4de5bce34cdf42f18badc87c99ef2b9d.html" title="10新款秋装英伦休闲纯棉V领撞色针织衫毛衫毛衣">10新款秋装英伦休闲纯棉V...</a>
+							</li>
+							<li class="number2">
+									<span class="icon">&nbsp;</span><a href="/html/product_content/201010/dd17736a25294d19b721bfe28eafb69f.html" title="2010新款春夏装 必备韩版流行时尚百搭玫瑰花苞连衣裙">2010新款春夏装 必备韩...</a>
+							</li>
+							<li class="number3">
+									<span class="icon">&nbsp;</span><a href="/html/product_content/201010/853e4d3f61104f478a0cfbd47e3d764e.html" title="正品私宠时装裤">正品私宠时装裤</a>
+							</li>
+							<li class="number4">
+									<span class="icon">&nbsp;</span><a href="/html/product_content/201010/4345b17a65ca4b6aabf1f8a701f2aba0.html" title="2010秋冬装新款 韩版中腰铅笔修身牛仔裤 女靴裤 小脚裤">2010秋冬装新款 韩版中...</a>
+							</li>
+							<li class="number5">
+									<span class="icon">&nbsp;</span><a href="/html/product_content/201010/a54c461332e54688ac7dbc34471fc68e.html" title="铁艺蜡烛台00224 婚庆用品 烛光晚餐">铁艺蜡烛台00224 婚庆...</a>
+							</li>
+							<li class="number6">
+									<span class="icon">&nbsp;</span><a href="/html/product_content/201010/d1e76a45cbe342dab3c984f488eba14f.html" title="伊泰莲娜红苹果金底/银底优雅大珍珠/套装/耳环">伊泰莲娜红苹果金底/银底优...</a>
+							</li>
+							<li class="number7">
+									<span class="icon">&nbsp;</span><a href="/html/product_content/201010/98d0aa750c9a4d2ca6d70a4cc76aa084.html" title="比亲1015高硼硅宽口径玻璃奶瓶+母乳实感动感奶嘴">比亲1015高硼硅宽口径玻...</a>
+							</li>
+							<li class="number8">
+									<span class="icon">&nbsp;</span><a href="/html/product_content/201010/0a293605c4404ac8886cf585e15cd329.html" title="泡沫之夏大S同款 绿蕾丝 绿丝带 发带">泡沫之夏大S同款 绿蕾丝 ...</a>
+							</li>
+					</ul>
+				</div>
+				<div class="bottom"></div>
+			</div>
+			<div class="blank"></div>
+			<div class="hotArticle">
+				<div class="top">热点文章</div>
+				<div class="middle clearfix">
+					<ul>
+							<li class="number1">
+									<span class="icon">&nbsp;</span><a href="/html/article_content/201010/90eb7634990341909027a5e20245b3e1.html" title="网站制度">网站制度</a>
+							</li>
+							<li class="number2">
+									<span class="icon">&nbsp;</span><a href="/html/article_content/201010/0340b92488ca464aa8d545fb899dcd25.html" title="会员等级">会员等级</a>
+							</li>
+							<li class="number3">
+									<span class="icon">&nbsp;</span><a href="/html/article_content/201010/070088f2df794b26b03bdf022565f1f2.html" title="关于我们">关于我们</a>
+							</li>
+							<li class="number4">
+									<span class="icon">&nbsp;</span><a href="/html/article_content/201010/5010509a555548939840a3103d3cea71.html" title="联系我们">联系我们</a>
+							</li>
+							<li class="number5">
+									<span class="icon">&nbsp;</span><a href="/html/article_content/201010/ac6f0b7c351c41058dc800ea0091e26c.html" title="退货政策">退货政策</a>
+							</li>
+							<li class="number6">
+									<span class="icon">&nbsp;</span><a href="/html/article_content/201010/50588403d9dd494c9035fa763e49e112.html" title="订单查询">订单查询</a>
+							</li>
+							<li class="number7">
+									<span class="icon">&nbsp;</span><a href="/html/article_content/201010/9102600e47b7401b843ad3722e1e9b70.html" title="购物流程">购物流程</a>
+							</li>
+							<li class="number8">
+									<span class="icon">&nbsp;</span><a href="/html/article_content/201010/fd97e448663c4f5a8f033743328a8038.html" title="网上支付">网上支付</a>
+							</li>
+							<li class="number9">
+									<span class="icon">&nbsp;</span><a href="/html/article_content/201010/82c2ffe3f0234a6ba2aed4727a75a19a.html" title="发票制度说明">发票制度说明</a>
+							</li>
+							<li class="number10">
+									<span class="icon">&nbsp;</span><a href="/html/article_content/201010/cb4b35cc2fd14ddbb20b49d7637fab2f.html" title="常见问题">常见问题</a>
+							</li>
+					</ul>
+				</div>
+				<div class="bottom"></div>
+			</div>
+		</div>
+		<div class="bodyRight">
+			<div class="bestProduct">
+				<div class="top">
+					<strong>精品推荐</strong>BEST
+				</div>
+				<div class="middle">
+					<ul>
+							<li>
+								<a href="/html/product_content/201010/a57b6df1e1454bc0872d29c5d983dcf3.html">
+									<img src="/upload/image/201010/591d5a1d8cd149b99e53528a26c1c488_thumbnail.jpg" alt="2010秋季韩版热卖新款酷感个性帅气格纹长袖翻领修身休闲女衬衫" />
+										<p title="2010秋季韩版热卖新款酷感个性帅气格纹长袖翻领修身休闲女衬衫">2010秋季韩版热卖...</p>
+									<p class="red">￥35.00</p>
+								</a>
+							</li>
+							<li>
+								<a href="/html/product_content/201010/975fcae6a1ab42ef98e4a9c8072d13f2.html">
+									<img src="/upload/image/201010/4e74998c94ea47be9951b0ed8674141d_thumbnail.jpg" alt="2010秋季新款 kappa靠背 女 运动套装 开衫长袖 运动服" />
+										<p title="2010秋季新款 kappa靠背 女 运动套装 开衫长袖 运动服">2010秋季新款 k...</p>
+									<p class="red">￥245.00</p>
+								</a>
+							</li>
+							<li>
+								<a href="/html/product_content/201010/3ba4738e316d4ad3a74fd3183b74fa1f.html">
+									<img src="/upload/image/201010/5063f814d0d74c2ba75f59029146725a_thumbnail.jpg" alt="新款小礼服连衣裙公主小礼服晚装礼服" />
+										<p title="新款小礼服连衣裙公主小礼服晚装礼服">新款小礼服连衣裙公主...</p>
+									<p class="red">￥138.00</p>
+								</a>
+							</li>
+							<li>
+								<a href="/html/product_content/201010/076dc53d2514416dafd189c6a5ac3b61.html">
+									<img src="/upload/image/201010/ad4eaccd4ffe4500b5f006478c668777_thumbnail.jpg" alt="女士钱包可爱/卡通/时尚韩版长款女式钱夹" />
+										<p title="女士钱包可爱/卡通/时尚韩版长款女式钱夹">女士钱包可爱/卡通/...</p>
+									<p class="red">￥78.00</p>
+								</a>
+							</li>
+							<li>
+								<a href="/html/product_content/201010/51b9223c405b43bd868c9697c2007452.html">
+									<img src="/upload/image/201010/7ebf18dcc411485592b6788679e0c913_thumbnail.jpg" alt="黛安芬 黑色妖姬 高档银丝设计抹胸式聚拢文胸" />
+										<p title="黛安芬 黑色妖姬 高档银丝设计抹胸式聚拢文胸">黛安芬 黑色妖姬 高...</p>
+									<p class="red">￥68.00</p>
+								</a>
+							</li>
+							<li>
+								<a href="/html/product_content/201010/07bfa8affbe643f388e619d831c3148c.html">
+									<img src="/upload/image/201010/26b8ceffc1a348a6a6653604c724ed89_thumbnail.jpg" alt="时尚高级兔毛 线衫 套头衫" />
+										<p title="时尚高级兔毛 线衫 套头衫">时尚高级兔毛 线衫 ...</p>
+									<p class="red">￥135.00</p>
+								</a>
+							</li>
+							<li>
+								<a href="/html/product_content/201010/b0885f9027dc4a69933ca59cef4232b3.html">
+									<img src="/upload/image/201010/a77014051e344dc6a55deff2ab2a9236_thumbnail.jpg" alt="淑女车线/女士手提斜跨包/女包" />
+										<p title="淑女车线/女士手提斜跨包/女包">淑女车线/女士手提斜...</p>
+									<p class="red">￥68.00</p>
+								</a>
+							</li>
+							<li>
+								<a href="/html/product_content/201010/9fc522addeb64361b256e042e1f96aec.html">
+									<img src="/upload/image/201010/106556070e0e4525a34a6d43b4e58f1b_thumbnail.jpg" alt="2010秋冬 新款 时尚高贵加厚 珊瑚绒 睡衣套装" />
+										<p title="2010秋冬 新款 时尚高贵加厚 珊瑚绒 睡衣套装">2010秋冬 新款 ...</p>
+									<p class="red">￥98.00</p>
+								</a>
+							</li>
+							<li>
+								<a href="/html/product_content/201010/55b028625122438f8b9d23e9503eb9ae.html">
+									<img src="/upload/image/201010/3bfbc76fd1f946fba9d456ee80b46a57_thumbnail.jpg" alt="商务男装修身休闲西服 单扣收腰小西装套装" />
+										<p title="商务男装修身休闲西服 单扣收腰小西装套装">商务男装修身休闲西服...</p>
+									<p class="red">￥299.00</p>
+								</a>
+							</li>
+							<li>
+								<a href="/html/product_content/201010/487461b654234817a3b61ffb2fab52c6.html">
+									<img src="/upload/image/201010/31bbb523c7554915b0f5ad526547f6de_thumbnail.jpg" alt="卡芙琳 极简主义-经典简约中跟单鞋" />
+										<p title="卡芙琳 极简主义-经典简约中跟单鞋">卡芙琳 极简主义-经...</p>
+									<p class="red">￥158.00</p>
+								</a>
+							</li>
+							<li>
+								<a href="/html/product_content/201010/ff00c3db01f4417196e75ec198449a52.html">
+									<img src="/upload/image/201010/cbebbaa084514f6cabbee0fa85d0ae63_thumbnail.jpg" alt="韩国2010秋装新款女装开衫针织衫" />
+										<p title="韩国2010秋装新款女装开衫针织衫">韩国2010秋装新款...</p>
+									<p class="red">￥78.00</p>
+								</a>
+							</li>
+							<li>
+								<a href="/html/product_content/201010/dd17736a25294d19b721bfe28eafb69f.html">
+									<img src="/upload/image/201010/5c76e81eff5c44bcbcbd4c3df96a8e84_thumbnail.jpg" alt="2010新款春夏装 必备韩版流行时尚百搭玫瑰花苞连衣裙" />
+										<p title="2010新款春夏装 必备韩版流行时尚百搭玫瑰花苞连衣裙">2010新款春夏装 ...</p>
+									<p class="red">￥85.00</p>
+								</a>
+							</li>
+					</ul>
+					<div class="clearfix"></div>
+				</div>
+				<div class="bottom"></div>
+			</div>
+		</div>
+		<div class="blank"></div>
+<link href="/template/shop/css/friend_link.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="/template/shop/js/friend_link.js"></script>
+<div class="friendLink">
+	<div class="pictureFriendLink">
+		<div class="left prev"></div>
+		<div class="middle scrollable">
+			<ul class="items">
+					<li>
+						<a href="http://www.boc.cn" target="_blank" title="中国银行">
+							<img src="/upload/image/d7f330b36cc1468e978a83b5edeb010e.gif">
+						</a>
+					</li>
+					<li>
+						<a href="http://cmpay.10086.cn/" target="_blank" title="手机支付">
+							<img src="/upload/image/b798c45e177e4486b3d91df376ffa605.gif">
+						</a>
+					</li>
+					<li>
+						<a href="https://www.alipay.com" target="_blank" title="支付宝">
+							<img src="/upload/image/351cf1e552314fa187c8cd2d4b1b28cb.png">
+						</a>
+					</li>
+					<li>
+						<a href="https://www.tenpay.com" target="_blank" title="财付通">
+							<img src="/upload/image/fc36b46c50a6485ca2b8e535d63c6a21.png">
+						</a>
+					</li>
+					<li>
+						<a href="https://www.99bill.com" target="_blank" title="快钱">
+							<img src="/upload/image/3f9825f3d5d84676865c4d5d6f67abaa.png">
+						</a>
+					</li>
+					<li>
+						<a href="http://www.shopxx.net" target="_blank" title="网上商城">
+							<img src="/upload/image/095643f4ff4449ba9dfc78b12bdc4b3a.png">
+						</a>
+					</li>
+					<li>
+						<a href="http://www.icbc.com.cn" target="_blank" title="工商银行">
+							<img src="/upload/image/d8c231353b594de89ab0e9954ced0335.png">
+						</a>
+					</li>
+					<li>
+						<a href="http://www.ccb.com/cn/home/index.html" target="_blank" title="建设银行">
+							<img src="/upload/image/e7b2b595a2724b87aa4fdecd34c75c79.png">
+						</a>
+					</li>
+					<li>
+						<a href="http://www.abchina.com/cn/default.htm" target="_blank" title="农业银行">
+							<img src="/upload/image/e11494cddc0a4d66ad4a90588168fa75.png">
+						</a>
+					</li>
+			</ul>
+		</div>
+		<div class="right next"></div>
+	</div>
+	<div class="textFriendLink">
+		<div class="left"></div>
+		<div class="middle">
+			<ul>
+					<li>
+						<a href="http://www.shopxx.net" target="_blank" title="开源网店系统">开源网店系统</a>
+					</li>
+					<li>
+						<a href="http://www.shopxx.net" target="_blank" title="SHOP++官方网站">SHOP++官方网站</a>
+					</li>
+					<li>
+						<a href="https://www.alipay.com" target="_blank" title="支付宝">支付宝</a>
+					</li>
+					<li>
+						<a href="http://www.shopxx.cn" target="_blank" title="SHOP++体验商城">SHOP++体验商城</a>
+					</li>
+					<li>
+						<a href="https://www.tenpay.com" target="_blank" title="财付通">财付通</a>
+					</li>
+					<li>
+						<a href="http://bbs.shopxx.net" target="_blank" title="SHOP++技术论坛">SHOP++技术论坛</a>
+					</li>
+					<li>
+						<a href="https://www.99bill.com" target="_blank" title="快钱">快钱</a>
+					</li>
+					<li>
+						<a href="http://www.shopxx.net" target="_blank" title="免费商城系统">免费商城系统</a>
+					</li>
+					<li>
+						<a href="http://www.baidu.com" target="_blank" title="百度">百度</a>
+					</li>
+					<li>
+						<a href="http://www.google.com.hk" target="_blank" title="Google">Google</a>
+					</li>
+			</ul>
+		</div>
+		<div class="right"></div>
+	</div>
+</div>	</div>
+	<div class="blank"></div>
+<link href="/template/shop/css/footer.css" type="text/css" rel="stylesheet" />
+<div class="footer">
+	<div class="bottomNavigation">
+				<dl>
+				<dd>
+					<a href="/html/article_content/201010/9102600e47b7401b843ad3722e1e9b70.html">购物流程</a>
+				</dd>
+				<dd>
+					<a href="/html/article_content/201010/90eb7634990341909027a5e20245b3e1.html">网站制度</a>
+				</dd>
+				<dd>
+					<a href="/html/article_content/201010/50588403d9dd494c9035fa763e49e112.html">订单查询</a>
+				</dd>
+				</dl>
+				<dl>
+				<dd>
+					<a href="/html/article_content/201010/390aed8de096473aa3fd928c25bf9fb9.html">积分说明</a>
+				</dd>
+				<dd>
+					<a href="/html/article_content/201010/c55109104bb241c7a51605602b1531df.html">会员注册协议</a>
+				</dd>
+				<dd>
+					<a href="/html/article_content/201010/0340b92488ca464aa8d545fb899dcd25.html">会员等级</a>
+				</dd>
+				</dl>
+				<dl>
+				<dd>
+					<a href="/html/article_content/201010/fd97e448663c4f5a8f033743328a8038.html">网上支付</a>
+				</dd>
+				<dd>
+					<a href="/shopxx/html/article_content/201010/fd97e448663c4f5a8f033743328a8038.html">邮局汇款</a>
+				</dd>
+				<dd>
+					<a href="/html/article_content/201010/ac6f0b7c351c41058dc800ea0091e26c.html">退货政策</a>
+				</dd>
+				</dl>
+				<dl>
+				<dd>
+					<a href="/html/article_content/201010/070088f2df794b26b03bdf022565f1f2.html">关于我们</a>
+				</dd>
+				<dd>
+					<a href="/html/article_content/201010/82c2ffe3f0234a6ba2aed4727a75a19a.html">发票制度说明</a>
+				</dd>
+				<dd>
+					<a href="/html/article_content/201010/cb4b35cc2fd14ddbb20b49d7637fab2f.html">常见问题</a>
+				</dd>
+				</dl>
+	</div>
+	<div class="footerInfo">
+<ul>
+<li><a>关于商城</a>|</li>
+<li><a>帮助中心</a>|</li>
+<li><a>网站地图</a>|</li>
+<li><a>诚聘英才</a>|</li>
+<li><a>联系我们</a>|</li>
+<li><a>版权说明</a></li>
+</ul>
+<ul>
+<p>Copyright &copy; 2010 SHOP++. All rights reserved. 长沙鼎诚软件有限公司</p>
+<p>Powered by <a class="systemName" href="http://www.shopxx.net" target="_blank">SHOP<span>++</span> V2010</a></p>
+</ul>	</div>
+</div></body>
 </html>
