@@ -74,7 +74,7 @@
 						<span class="sort" name="telephone">电话</span>
 					</th>
 					<th>
-						<span class="sort" name="mobilephone">家庭电话</span>
+						<span class="sort" name="mobilePhone">家庭电话</span>
 					</th>
 					<th>
 						<span class="sort" name="idCard">身份证</span>
@@ -120,7 +120,7 @@
 							${list.telephone}
 						</td>
 						<td>
-							${list.mobilephone}
+							${list.mobilePhone}
 						</td>
 						<td>
 							${list.idCard}
