@@ -46,7 +46,7 @@ public class LxitJiraServiceTest {
 	public void testCreateDayLogProject() {
 		LxitClass lxitClass = new LxitClass();
 		lxitClass.setId("1102");
-		lxitJiraService.createGroup(lxitClass.getId());
+//		lxitJiraService.createGroup(lxitClass.getId());
 		lxitJiraService.createDayLogPermissionsAndScheme(lxitClass.getId());
 		lxitJiraService.createDayLogProject(lxitClass.getId());
 

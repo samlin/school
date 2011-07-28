@@ -103,8 +103,8 @@ public class LxitJiraManager {
 		permissionSchem.setId(new Long(0));
 		project.setPermissionScheme(permissionSchem);
 		j.createProjectFromObject(a, project);
-		RemotePermissionScheme defaultPermScheme = getPermissionSchemeFromClassId(classId);
-		project.setPermissionScheme(defaultPermScheme);
+//		RemotePermissionScheme defaultPermScheme = getPermissionSchemeFromClassId(classId);
+//		project.setPermissionScheme(defaultPermScheme);
 		return project;
 	}
 
@@ -132,10 +132,17 @@ public class LxitJiraManager {
 			RemoteValidationException, RemoteAuthenticationException,
 			com.atlassian.jira.rpc.soap.client.RemoteException {
 		RemotePermissionScheme defaultPermScheme = new RemotePermissionScheme();
-		defaultPermScheme.setId(new Long(0));
-		j.createPermissionScheme(a,
-				getRemotePermissionSchemeNameByClassId(classId),
-				"this is permissioScheme for " + classId);
+//		defaultPermScheme.setId(new Long(0));
+//		j.createPermissionScheme(a,
+//				getRemotePermissionSchemeNameByClassId(classId),
+//				"this is permissioScheme for " + classId);
+		RemotePermissionScheme[] permissionSchemes = j.getPermissionSchemes(a);
+		for (int i = 0; i < permissionSchemes.length; i++) {
+			RemotePermissionScheme permission=permissionSchemes[i];
+			if (permission.getName().equals(getDayLogPermissionSchemeNameFromClassId(classId))) {
+				defaultPermScheme=permission;
+			}
+		}
 		return defaultPermScheme;
 	}
 
@@ -607,8 +614,8 @@ public class LxitJiraManager {
 
 	}
 
-	public static void createDayLogProject(String classId) {
-		RemoteProject project;
+	public static RemoteProject createDayLogProject(String classId) {
+		RemoteProject project=null;
 		try {
 			project = getDayLogRemoteProject(classId);
 			j.updateProject(a, project);
@@ -617,6 +624,7 @@ public class LxitJiraManager {
 		}
 		System.out.println("keys:" + createProjectKey(classId, "") + "  name:"
 				+ "DayLog" + classId);
+		return project;
 	}
 
 	public static void createStudnetAndGroup(LxitClass lxitClass) {
@@ -682,7 +690,7 @@ public class LxitJiraManager {
 
 	}
 
-	public static void createDayLogPermissionsAndScheme(String classId) {
+	public static RemotePermissionScheme createDayLogPermissionsAndScheme(String classId) {
 		RemotePermissionScheme remotePermissionScheme = null;
 		try {
 			remotePermissionScheme = j.createPermissionScheme(a,
@@ -692,8 +700,8 @@ public class LxitJiraManager {
 			e.printStackTrace();
 		}
 
-		System.out.println("����Ȩ��<"
-				+ getDayLogPermissionSchemeNameFromClassId(classId) + ">�ɹ�");
+		System.out.println("创建的权限名字是:"
+				+ getDayLogPermissionSchemeNameFromClassId(classId) + "");
 		try {
 
 			addStudentTeacherAdminPermissionToCurrentPermissionScheme(classId,
@@ -702,6 +710,7 @@ public class LxitJiraManager {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return remotePermissionScheme;
 	}
 
 	private static void addStudentTeacherAdminPermissionToCurrentPermissionScheme(

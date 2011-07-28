@@ -14,19 +14,6 @@ import com.lxitedu.bean.LxitClass;
 import com.lxitedu.service.jira.LxitJiraService;
 import com.opensymphony.xwork2.interceptor.annotations.InputConfig;
 
-/**
- * 后台Action类 - 商品分类
- * ============================================================================
- * 版权所有 2008-2010 长沙鼎诚软件有限公司，并保留所有权利。
- * ----------------------------------------------------------------------------
- * 提示：在未取得SHOP++商业授权之前，您不能将本软件应用于商业用途，否则SHOP++将保留追究的权力。
- * ----------------------------------------------------------------------------
- * 官方网站：http://www.shopxx.net
- * ----------------------------------------------------------------------------
- * KEY: SHOPXXF8D13DDE8B51433D52B3F73D96C223F8
- * ============================================================================
- */
-
 @ParentPackage("admin")
 public class LxClassAction extends BaseAdminAction {
 
@@ -38,6 +25,7 @@ public class LxClassAction extends BaseAdminAction {
 	private LxClassService lxClassService;
 	@Resource
 	private StudentService studentService;
+	private LxitJiraService lxitJiraService = new LxitJiraService();;
 
 	// 添加
 	public String add() {
@@ -61,10 +49,14 @@ public class LxClassAction extends BaseAdminAction {
 		return SUCCESS;
 	}
 	public String dayLog() {
-		LxitJiraService tt=new LxitJiraService();
-		tt.createGroup(id);
+		LxitJiraService lxitJiraService=new LxitJiraService();
+		lxitJiraService.createGroup(id);
 		List<Student> classStudentList = studentService.getList("classId", id);
-		tt.createJiraStudentsToGroup(classStudentList,id);
+		lxitJiraService.createJiraStudentsToGroup(classStudentList,id);
+		return SUCCESS;
+	}
+	public String dayLogProject() {
+		lxitJiraService.createDayLogProject(id);
 		return SUCCESS;
 	}
 
@@ -82,36 +74,17 @@ public class LxClassAction extends BaseAdminAction {
 //	)
 	@InputConfig(resultName = "error")
 	public String save() {
-//		if (StringUtils.isNotEmpty(parentId)) {
-//			ProductCategory parent = productCategoryService.load(parentId);
-//			productCategory.setParent(parent);
-//		} else {
-//			productCategory.setParent(null);
-//		}
 		lxClassService.save(getLxClass());
 		redirectionUrl = "lx_class!list.action";
 		return SUCCESS;
 	}
 
-	// 更新
-//	@Validations(
-//		requiredStrings = { 
-//			@RequiredStringValidator(fieldName = "productCategory.name", message = "分类名称不允许为空!")
-//		}, 
-//		requiredFields = { 
-//			@RequiredFieldValidator(fieldName = "productCategory.orderList", message = "排序不允许为空!")
-//		},
-//		intRangeFields = {
-//			@IntRangeFieldValidator(fieldName = "productCategory.orderList", min = "0", message = "排序必须为零或正整数!")
-//		}
-//	)
+	
 	@InputConfig(resultName = "error")
 	public String update() {
-//		ProductCategory persistent = productCategoryService.load(id);
-//		BeanUtils.copyProperties(productCategory, persistent, new String[]{"id", "createDate", "modifyDate", "path", "parent", "children", "productSet"});
-		LxClass lxClass2 = getLxClass();
-		lxClass2.setId(id);
-		lxClassService.update(lxClass2);
+		LxClass lxClassTmp = getLxClass();
+		lxClassTmp.setId(id);
+		lxClassService.update(lxClassTmp);
 		redirectionUrl = "lx_class!list.action";
 		return SUCCESS;
 	}

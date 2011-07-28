@@ -6,6 +6,7 @@ import com.atlassian.jira.rpc.soap.client.LxitJiraManager;
 import com.atlassian.jira.rpc.soap.client.RemoteAuthenticationException;
 import com.atlassian.jira.rpc.soap.client.RemoteException;
 import com.atlassian.jira.rpc.soap.client.RemoteIssue;
+import com.atlassian.jira.rpc.soap.client.RemotePermissionScheme;
 import com.atlassian.jira.rpc.soap.client.RemoteProject;
 import com.atlassian.jira.rpc.soap.client.RemoteValidationException;
 import com.lxitedu.bean.LxitClass;
@@ -38,13 +39,14 @@ public class LxitJiraService {
 
 	}
 
-	public void createDayLogPermissionsAndScheme(String classId) {
-		LxitJiraManager.createDayLogPermissionsAndScheme(classId);
+	public RemotePermissionScheme createDayLogPermissionsAndScheme(String classId) {
+		return LxitJiraManager.createDayLogPermissionsAndScheme(classId);
 	}
 
 	public void createDayLogProject(String id) {
-		LxitJiraManager.createDayLogProject(id);
-
+		RemoteProject createDayLogProject = LxitJiraManager.createDayLogProject(id);
+		createDayLogProject.setPermissionScheme(createDayLogPermissionsAndScheme(id));
+		System.out.println("LxitJiraService.createDayLogProject():" + createDayLogProject.getName() + "success...");
 	}
 
 	public static void fixIssue(String issueKey) {
@@ -109,11 +111,9 @@ public class LxitJiraService {
 		return LxitJiraManager.getProjectByKey(string);
 	}
 
-	public void createJiraStudentsToGroup(
-			List<com.lxit.entity.Student> classStudentList, String className) {
+	public void createJiraStudentsToGroup(List<com.lxit.entity.Student> classStudentList, String className) {
 		try {
-			LxitJiraManager.createJiraStudentsToGroup(classStudentList,
-					className);
+			LxitJiraManager.createJiraStudentsToGroup(classStudentList, className);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

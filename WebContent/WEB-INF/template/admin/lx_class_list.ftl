@@ -58,6 +58,7 @@ $().ready(function() {
 							
 							<a href="lx_class!edit.action?id=${list.id}" title="编辑">[编辑]</a>
 							<a href="lx_class!dayLog.action?id=${list.name}" title="编辑">[创建日志用户]</a>
+							<a href="lx_class!dayLogProject.action?id=${list.name}" title="编辑">[创建日志]</a>
 						</td>
 					</tr>
 				</#list>
