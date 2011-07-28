@@ -9,13 +9,13 @@
 	<bean id="compass" class="org.compass.spring.LocalCompassBean">
 		<property name="resourceDirectoryLocations">
 			<list>
-				<value>classpath:net/shopxx</value>
+				<value>classpath:com/lxit</value>
 			</list>
 		</property>
 		<property name="classMappings">
 			<list>
-				<value>net.shopxx.entity.Article</value>
-				<value>net.shopxx.entity.Product</value>
+				<value>com.lxit.entity.Article</value>
+				<value>com.lxit.entity.Product</value>
 			</list>
 		</property>
 		

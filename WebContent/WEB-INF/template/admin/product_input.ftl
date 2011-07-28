@@ -113,7 +113,7 @@ $().ready(function() {
 		var $productImageLi = $this.parent().parent().parent();
 		var $productImagePreview = $productImageLi.find(".productImagePreview");
 		var fileName = $this.val().substr($this.val().lastIndexOf("\\") + 1);
-		if (/(<#list systemConfig.allowedUploadImageExtension?split(stack.findValue("@net.shopxx.bean.SystemConfig@EXTENSION_SEPARATOR")) as list><#if list_has_next>.${list}|<#else>.${list}</#if></#list>)$/i.test($this.val()) == false) {
+		if (/(<#list systemConfig.allowedUploadImageExtension?split(stack.findValue("@com.lxit.bean.SystemConfig@EXTENSION_SEPARATOR")) as list><#if list_has_next>.${list}|<#else>.${list}</#if></#list>)$/i.test($this.val()) == false) {
 			$.message("您选择的文件格式错误！");
 			return false;
 		}
@@ -373,7 +373,7 @@ $().ready(function() {
 							<a class="next browse" href="javascript:void(0);" hidefocus="true"></a>
 							<div class="blank"></div>
 							<#if systemConfig.allowedUploadImageExtension != "">
-								<span class="warnInfo"><span class="icon">&nbsp;</span><#if (systemConfig.uploadLimit) != 0 && (systemConfig.uploadLimit < 1024)>小于${systemConfig.uploadLimit}KB<#elseif (systemConfig.uploadLimit >= 1024)>小于${systemConfig.uploadLimit / 1024}MB</#if> (<#list systemConfig.allowedUploadImageExtension?split(stack.findValue("@net.shopxx.bean.SystemConfig@EXTENSION_SEPARATOR")) as list><#if list_has_next>*.${list};<#else>*.${list}</#if></#list>)</span>
+								<span class="warnInfo"><span class="icon">&nbsp;</span><#if (systemConfig.uploadLimit) != 0 && (systemConfig.uploadLimit < 1024)>小于${systemConfig.uploadLimit}KB<#elseif (systemConfig.uploadLimit >= 1024)>小于${systemConfig.uploadLimit / 1024}MB</#if> (<#list systemConfig.allowedUploadImageExtension?split(stack.findValue("@com.lxit.bean.SystemConfig@EXTENSION_SEPARATOR")) as list><#if list_has_next>*.${list};<#else>*.${list}</#if></#list>)</span>
 							<#else>
 								<span class="warnInfo"><span class="icon">&nbsp;</span>系统设置不允许上传图片文件!</span>
 							</#if>

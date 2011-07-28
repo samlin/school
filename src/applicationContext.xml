@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:oscache="http://www.springmodules.org/schema/oscache"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd http://www.springmodules.org/schema/oscache http://www.springmodules.org/schema/cache/springmodules-oscache.xsd"><bean id="xInitializing" class="net.shopxx.common.Initializing"><property name="keyFile" value="c2hvcHh4LnR4d" /></bean>
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd http://www.springmodules.org/schema/oscache http://www.springmodules.org/schema/cache/springmodules-oscache.xsd"><bean id="xInitializing" class="com.lxit.common.Initializing"><property name="keyFile" value="c2hvcHh4LnR4d" /></bean>
 
 	<!-- JDBC参数配置 -->
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" lazy-init="true">
@@ -62,43 +62,43 @@
 
 		<property name="annotatedClasses">
 			<list>
-				<value>net.shopxx.entity.Area</value>
-				<value>net.shopxx.entity.LogConfig</value>
-				<value>net.shopxx.entity.Log</value>
-				<value>net.shopxx.entity.Admin</value>
-				<value>net.shopxx.entity.Role</value>
-				<value>net.shopxx.entity.Resource</value>
-				<value>net.shopxx.entity.MemberRank</value>
-				<value>net.shopxx.entity.Member</value>
-				<value>net.shopxx.entity.MemberAttribute</value>
-				<value>net.shopxx.entity.Receiver</value>
-				<value>net.shopxx.entity.ProductCategory</value>
-				<value>net.shopxx.entity.Product</value>
-				<value>net.shopxx.entity.ProductType</value>
-				<value>net.shopxx.entity.ProductAttribute</value>
-				<value>net.shopxx.entity.Brand</value>
-				<value>net.shopxx.entity.Navigation</value>
-				<value>net.shopxx.entity.ArticleCategory</value>
-				<value>net.shopxx.entity.Article</value>
-				<value>net.shopxx.entity.FriendLink</value>
-				<value>net.shopxx.entity.Footer</value>
-				<value>net.shopxx.entity.Agreement</value>
-				<value>net.shopxx.entity.Message</value>
-				<value>net.shopxx.entity.CartItem</value>
-				<value>net.shopxx.entity.PaymentConfig</value>
-				<value>net.shopxx.entity.Deposit</value>
-				<value>net.shopxx.entity.Payment</value>
-				<value>net.shopxx.entity.Refund</value>
-				<value>net.shopxx.entity.Shipping</value>
-				<value>net.shopxx.entity.Reship</value>
-				<value>net.shopxx.entity.DeliveryType</value>
-				<value>net.shopxx.entity.DeliveryCorp</value>
-				<value>net.shopxx.entity.DeliveryItem</value>
-				<value>net.shopxx.entity.Order</value>
-				<value>net.shopxx.entity.OrderItem</value>
-				<value>net.shopxx.entity.OrderLog</value>
-				<value>net.shopxx.entity.LxClass</value>
-				<value>net.shopxx.entity.Student</value>
+				<value>com.lxit.entity.Area</value>
+				<value>com.lxit.entity.LogConfig</value>
+				<value>com.lxit.entity.Log</value>
+				<value>com.lxit.entity.Admin</value>
+				<value>com.lxit.entity.Role</value>
+				<value>com.lxit.entity.Resource</value>
+				<value>com.lxit.entity.MemberRank</value>
+				<value>com.lxit.entity.Member</value>
+				<value>com.lxit.entity.MemberAttribute</value>
+				<value>com.lxit.entity.Receiver</value>
+				<value>com.lxit.entity.ProductCategory</value>
+				<value>com.lxit.entity.Product</value>
+				<value>com.lxit.entity.ProductType</value>
+				<value>com.lxit.entity.ProductAttribute</value>
+				<value>com.lxit.entity.Brand</value>
+				<value>com.lxit.entity.Navigation</value>
+				<value>com.lxit.entity.ArticleCategory</value>
+				<value>com.lxit.entity.Article</value>
+				<value>com.lxit.entity.FriendLink</value>
+				<value>com.lxit.entity.Footer</value>
+				<value>com.lxit.entity.Agreement</value>
+				<value>com.lxit.entity.Message</value>
+				<value>com.lxit.entity.CartItem</value>
+				<value>com.lxit.entity.PaymentConfig</value>
+				<value>com.lxit.entity.Deposit</value>
+				<value>com.lxit.entity.Payment</value>
+				<value>com.lxit.entity.Refund</value>
+				<value>com.lxit.entity.Shipping</value>
+				<value>com.lxit.entity.Reship</value>
+				<value>com.lxit.entity.DeliveryType</value>
+				<value>com.lxit.entity.DeliveryCorp</value>
+				<value>com.lxit.entity.DeliveryItem</value>
+				<value>com.lxit.entity.Order</value>
+				<value>com.lxit.entity.OrderItem</value>
+				<value>com.lxit.entity.OrderLog</value>
+				<value>com.lxit.entity.LxClass</value>
+				<value>com.lxit.entity.Student</value>
 			</list>
 		</property>
 	</bean>
@@ -115,7 +115,7 @@
     </bean>
     
 	<!-- 设置需要进行Spring注解扫描的类包 -->
-	<context:component-scan base-package="net.shopxx" />
+	<context:component-scan base-package="com.lxit" />
 
 	<!-- 使用AspectJ方式配置AOP -->
 	<aop:aspectj-autoproxy proxy-target-class="true" />
@@ -144,7 +144,7 @@
 
 	<!-- 配置哪些类的哪些方法参与事务 -->
 	<aop:config>
-		<aop:advisor pointcut="execution(* net.shopxx.service..*.*(..))" advice-ref="transactionAdvice" />
+		<aop:advisor pointcut="execution(* com.lxit.service..*.*(..))" advice-ref="transactionAdvice" />
 	</aop:config>
 
 	<!-- 配置freemarkerManager -->
@@ -153,14 +153,14 @@
 	<!-- 配置JCaptcha验证码功能 -->
 	<bean id="captchaService" class="com.octo.captcha.service.image.DefaultManageableImageCaptchaService">
 		<property name="captchaEngine">
-			<bean class="net.shopxx.common.JCaptchaEngine" />
+			<bean class="com.lxit.common.JCaptchaEngine" />
 		</property>
 		<!-- 验证码过期时间 -->
 		<property name="minGuarantedStorageDelayInSeconds" value="600" />
 	</bean>
 
 	<!-- 重建索引配置 -->
-	<bean id="indexBuilder" class="net.shopxx.common.CompassIndexBuilder">
+	<bean id="indexBuilder" class="com.lxit.common.CompassIndexBuilder">
 		<property name="compassGps" ref="compassGps" />
 		<property name="lazyTime" value="30" />
 	</bean>

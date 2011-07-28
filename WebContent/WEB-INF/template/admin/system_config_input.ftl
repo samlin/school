@@ -149,7 +149,7 @@ $().ready(function() {
 						热门搜索关键词:
 					</th>
 					<td>
-						<input type="text" name="systemConfig.hotSearch" class="formText" value="${(systemConfig.hotSearch)!}" title="页面显示的热门搜索关键字,多个关键字请以(${stack.findValue("@net.shopxx.bean.SystemConfig@HOT_SEARCH_SEPARATOR")})分隔" />
+						<input type="text" name="systemConfig.hotSearch" class="formText" value="${(systemConfig.hotSearch)!}" title="页面显示的热门搜索关键字,多个关键字请以(${stack.findValue("@com.lxit.bean.SystemConfig@HOT_SEARCH_SEPARATOR")})分隔" />
 					</td>
 				</tr>
 				<tr>
@@ -343,7 +343,7 @@ $().ready(function() {
 						允许上传图片文件扩展名:
 					</th>
 					<td>
-						<input type="text" name="systemConfig.allowedUploadImageExtension" class="formText" value="${(systemConfig.allowedUploadImageExtension)!}" title="为空表示不允许上传图片文件,多个扩展名请以(${stack.findValue("@net.shopxx.bean.SystemConfig@EXTENSION_SEPARATOR")})分隔" />
+						<input type="text" name="systemConfig.allowedUploadImageExtension" class="formText" value="${(systemConfig.allowedUploadImageExtension)!}" title="为空表示不允许上传图片文件,多个扩展名请以(${stack.findValue("@com.lxit.bean.SystemConfig@EXTENSION_SEPARATOR")})分隔" />
 					</td>
 				</tr>
 				<tr>
@@ -351,7 +351,7 @@ $().ready(function() {
 						允许上传媒体文件扩展名:
 					</th>
 					<td>
-						<input type="text" name="systemConfig.allowedUploadMediaExtension" class="formText" value="${(systemConfig.allowedUploadMediaExtension)!}" title="为空表示不允许上传媒体文件,多个扩展名请以(${stack.findValue("@net.shopxx.bean.SystemConfig@EXTENSION_SEPARATOR")})分隔" />
+						<input type="text" name="systemConfig.allowedUploadMediaExtension" class="formText" value="${(systemConfig.allowedUploadMediaExtension)!}" title="为空表示不允许上传媒体文件,多个扩展名请以(${stack.findValue("@com.lxit.bean.SystemConfig@EXTENSION_SEPARATOR")})分隔" />
 					</td>
 				</tr>
 				<tr>
@@ -359,7 +359,7 @@ $().ready(function() {
 						允许上传其它文件扩展名:
 					</th>
 					<td>
-						<input type="text" name="systemConfig.allowedUploadFileExtension" class="formText" value="${(systemConfig.allowedUploadFileExtension)!}" title="为空表示不允许上传其它文件,多个扩展名请以(${stack.findValue("@net.shopxx.bean.SystemConfig@EXTENSION_SEPARATOR")})分隔" />
+						<input type="text" name="systemConfig.allowedUploadFileExtension" class="formText" value="${(systemConfig.allowedUploadFileExtension)!}" title="为空表示不允许上传其它文件,多个扩展名请以(${stack.findValue("@com.lxit.bean.SystemConfig@EXTENSION_SEPARATOR")})分隔" />
 					</td>
 				</tr>
 				<tr>

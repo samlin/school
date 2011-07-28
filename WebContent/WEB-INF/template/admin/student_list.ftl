@@ -20,11 +20,11 @@
 				<input type="button" class="addButton" onclick="location.href='student!add.action'" value="添加会员" />
 				<label>查找:</label>
 				<select name="pager.property">
-					<option value="username" <#if pager.property == "username">selected="selected" </#if>>
-						用户名
+					<option value="classId" <#if pager.property == "classId">selected="selected" </#if>>
+						班级
 					</option>
-					<option value="email" <#if pager.property == "email">selected="selected" </#if>>
-						E-mail
+					<option value="name" <#if pager.property == "name">selected="selected" </#if>>
+						用户名
 					</option>
 				</select>
 				<label class="searchText"><input type="text" name="pager.keyword" value="${pager.keyword!}" /></label><input type="button" id="searchButton" class="searchButton" value="" />
