@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <shopxx>
-	<description>SHOP++配置文件</description>
+	<description>系统配置文件</description>
 	<systemConfig>
 		<systemName>Apple shop</systemName>
 		<systemVersion>V2010</systemVersion>
-		<systemDescription>SHOP++是基于JAVA技术的开源网店系统，主要应用于电子商务领域内的网上购物、网上交易、交易信息发布等系统的构建。致力于为个人和企业提供安全、稳定、高效、强大的电子商务解决方案，并推进国内电子商务技术和开源技术的发展而不断努力。</systemDescription>
+		<systemDescription>网络商城是基于JAVA技术的开源网店系统，主要应用于电子商务领域内的网上购物、网上交易、交易信息发布等系统的构建。致力于为个人和企业提供安全、稳定、高效、强大的电子商务解决方案，并推进国内电子商务技术和开源技术的发展而不断努力。</systemDescription>
 		<isInstalled>false</isInstalled>
 		<shopName>SHOP++体验商城</shopName>
 		<shopUrl>http://www.shopxx.cn</shopUrl>
 		<shopLogo>/upload/image/logo.gif</shopLogo>
 		<hotSearch>儿童,牛仔裤,连衣裙,邦威,鞋,包,衬衫,裙,内衣,裤</hotSearch>
-		<metaKeywords>SHOP++体验商城</metaKeywords>
-		<metaDescription>SHOP++是基于JAVA技术的开源网店系统，主要应用于电子商务领域内的网上购物、网上交易、交易信息发布等系统的构建。致力于为个人和企业提供安全、稳定、高效、强大的电子商务解决方案，并推进国内电子商务技术和开源技术的发展而不断努力。</metaDescription>
-		<address>湖南长沙经济技术开发区</address>
+		<metaKeywords>Apple网络商城</metaKeywords>
+		<metaDescription>apple是基于JAVA技术的开源网店系统，主要应用于电子商务领域内的网上购物、网上交易、交易信息发布等系统的构建。致力于为个人和企业提供安全、稳定、高效、强大的电子商务解决方案，并推进国内电子商务技术和开源技术的发展而不断努力。</metaDescription>
+		<address>深圳观澜镇</address>
 		<phone>400-8888888</phone>
 		<zipCode>400000</zipCode>
-		<email>admin@shopxx.net</email>
+		<email>admin@gmail.com.net</email>
 		<currencyType>CNY</currencyType>
 		<currencySign>￥</currencySign>
 		<currencyUnit>元</currencyUnit>
@@ -23,7 +23,7 @@
 		<priceRoundType>roundHalfUp</priceRoundType>
 		<orderScale>2</orderScale>
 		<orderRoundType>roundHalfUp</orderRoundType>
-		<certtext>湘ICP备10000000号</certtext>
+		<certtext>粤ICP备10000000号</certtext>
 		<storeAlertCount>5</storeAlertCount>
 		<storeFreezeTime>order</storeFreezeTime>
 		<uploadLimit>1024</uploadLimit>
@@ -46,7 +46,7 @@
 		<allowedUploadImageExtension>jpg,jpge,bmp,gif,png</allowedUploadImageExtension>
 		<allowedUploadMediaExtension></allowedUploadMediaExtension>
 		<allowedUploadFileExtension></allowedUploadFileExtension>
-		<smtpFromMail>test@shopxx.net</smtpFromMail>
+		<smtpFromMail>test@gmail.com.net</smtpFromMail>
 		<smtpHost>smtp.shopxx.net</smtpHost>
 		<smtpPort>25</smtpPort>
 		<smtpUsername>test</smtpUsername>
