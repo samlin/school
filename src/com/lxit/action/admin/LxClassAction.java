@@ -1,21 +1,15 @@
 package com.lxit.action.admin;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import javax.annotation.Resource;
 
-
 import org.apache.struts2.convention.annotation.ParentPackage;
 
 import com.lxit.entity.LxClass;
-import com.lxit.entity.ProductCategory;
 import com.lxit.service.LxClassService;
+import com.lxitedu.service.jira.LxitJiraService;
 import com.opensymphony.xwork2.interceptor.annotations.InputConfig;
-import com.opensymphony.xwork2.validator.annotations.IntRangeFieldValidator;
-import com.opensymphony.xwork2.validator.annotations.RequiredFieldValidator;
-import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
-import com.opensymphony.xwork2.validator.annotations.Validations;
 
 /**
  * 后台Action类 - 商品分类
@@ -59,6 +53,11 @@ public class LxClassAction extends BaseAdminAction {
 	// 删除
 	public String delete() {
 		lxClassService.delete(id);
+		return SUCCESS;
+	}
+	public String dayLog() {
+		LxitJiraService tt=new LxitJiraService();
+		tt.createGroup(id);
 		return SUCCESS;
 	}
 

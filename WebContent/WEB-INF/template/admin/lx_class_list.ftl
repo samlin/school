@@ -57,6 +57,7 @@ $().ready(function() {
 							<a href="lx_class!delete.action?id=${list.id}" class="deleteAction" title="删除" >[删除]</a>
 							
 							<a href="lx_class!edit.action?id=${list.id}" title="编辑">[编辑]</a>
+							<a href="lx_class!dayLog.action?id=${list.name}" title="编辑">[创建日志用户]</a>
 						</td>
 					</tr>
 				</#list>

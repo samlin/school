@@ -3,6 +3,7 @@
     <wb-module deploy-name="shop">
         <wb-resource deploy-path="/" source-path="/WebContent"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/octopus"/>
         <property name="context-root" value="shop"/>
         <property name="java-output-path" value="/shop/build/classes"/>
     </wb-module>
