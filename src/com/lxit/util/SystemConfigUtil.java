@@ -35,7 +35,7 @@ import com.lxit.bean.SystemConfig.WatermarkPosition;
 
 public class SystemConfigUtil {
 	
-	public static final String CONFIG_FILE_NAME = "shopxx.xml";// 系统配置文件名称
+	public static final String CONFIG_FILE_NAME = "lxit.xml";// 系统配置文件名称
 	public static final String SYSTEM_CONFIG_CACHE_KEY = "systemConfig";// systemConfig缓存Key
 
 	/**
