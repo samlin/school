@@ -60,12 +60,14 @@ public class LxitJiraManager {
 	}
 
 	private static void createDayLogProjects() {
-		for (Iterator<String> iterator = classList.iterator(); iterator.hasNext();) {
+		for (Iterator<String> iterator = classList.iterator(); iterator
+				.hasNext();) {
 			try {
 				String classId = iterator.next();
 				RemoteProject project = getDayLogRemoteProject(classId);
 				j.updateProject(a, project);
-				System.out.println("keys:" + createProjectKey(classId, "") + "  name:" + "DayLog" + classId);
+				System.out.println("keys:" + createProjectKey(classId, "")
+						+ "  name:" + "DayLog" + classId);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -73,20 +75,23 @@ public class LxitJiraManager {
 	}
 
 	private static void createDayProblemProjects() {
-		for (Iterator<String> iterator = classList.iterator(); iterator.hasNext();) {
+		for (Iterator<String> iterator = classList.iterator(); iterator
+				.hasNext();) {
 			try {
 				String classId = iterator.next();
 				RemoteProject project = getDayProblemRemoteProject(classId);
 				j.updateProject(a, project);
-				System.out.println("keys:" + createProjectKey(classId, "") + "  name:" + "DayLog" + classId);
+				System.out.println("keys:" + createProjectKey(classId, "")
+						+ "  name:" + "DayLog" + classId);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 	}
 
-	private static RemoteProject getDayLogRemoteProject(String classId) throws RemoteException,
-			RemotePermissionException, RemoteValidationException, RemoteAuthenticationException,
+	private static RemoteProject getDayLogRemoteProject(String classId)
+			throws RemoteException, RemotePermissionException,
+			RemoteValidationException, RemoteAuthenticationException,
 			com.atlassian.jira.rpc.soap.client.RemoteException {
 		RemoteProject project = new RemoteProject();
 		project.setKey(createProjectKey(classId, "DL"));
@@ -103,13 +108,14 @@ public class LxitJiraManager {
 		return project;
 	}
 
-	private static RemoteProject getDayProblemRemoteProject(String classId) throws RemoteException,
-			RemotePermissionException, RemoteValidationException, RemoteAuthenticationException,
+	private static RemoteProject getDayProblemRemoteProject(String classId)
+			throws RemoteException, RemotePermissionException,
+			RemoteValidationException, RemoteAuthenticationException,
 			com.atlassian.jira.rpc.soap.client.RemoteException {
 		RemoteProject project = new RemoteProject();
 		project.setKey(createProjectKey(classId, "DP"));
 		project.setName("DayProblem" + classId);
-		project.setDescription("’‚ « " + classId + "∞‡µƒ√øÃÏŒ Ã‚µƒœÓƒø desc");
+		project.setDescription("ÔøΩÔøΩÔøΩÔøΩ " + classId + "ÔøΩÔøΩÔøΩ√øÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩƒø desc");
 		project.setProjectUrl("http://www.lxitedu.com");
 		project.setLead("admin");
 		RemotePermissionScheme permissionSchem = new RemotePermissionScheme();
@@ -121,22 +127,26 @@ public class LxitJiraManager {
 		return project;
 	}
 
-	private static RemotePermissionScheme getPermissionSchemeFromClassId(String classId) throws RemoteException,
-			RemotePermissionException, RemoteValidationException, RemoteAuthenticationException,
+	private static RemotePermissionScheme getPermissionSchemeFromClassId(
+			String classId) throws RemoteException, RemotePermissionException,
+			RemoteValidationException, RemoteAuthenticationException,
 			com.atlassian.jira.rpc.soap.client.RemoteException {
 		RemotePermissionScheme defaultPermScheme = new RemotePermissionScheme();
 		defaultPermScheme.setId(new Long(0));
-		j.createPermissionScheme(a, getRemotePermissionSchemeNameByClassId(classId), "this is permissioScheme for "
-				+ classId);
+		j.createPermissionScheme(a,
+				getRemotePermissionSchemeNameByClassId(classId),
+				"this is permissioScheme for " + classId);
 		return defaultPermScheme;
 	}
 
-	private static RemotePermissionScheme getDayProblemPermissionSchemeFromClassId(String classId)
-			throws RemoteException, RemotePermissionException, RemoteValidationException,
-			RemoteAuthenticationException, com.atlassian.jira.rpc.soap.client.RemoteException {
+	private static RemotePermissionScheme getDayProblemPermissionSchemeFromClassId(
+			String classId) throws RemoteException, RemotePermissionException,
+			RemoteValidationException, RemoteAuthenticationException,
+			com.atlassian.jira.rpc.soap.client.RemoteException {
 		RemotePermissionScheme defaultPermScheme = new RemotePermissionScheme();
 		defaultPermScheme.setId(new Long(0));
-		j.createPermissionScheme(a, getDayProblemRemotePermissionSchemeNameByClassId(classId),
+		j.createPermissionScheme(a,
+				getDayProblemRemotePermissionSchemeNameByClassId(classId),
 				"this is permissioScheme for " + classId);
 		return defaultPermScheme;
 	}
@@ -145,7 +155,8 @@ public class LxitJiraManager {
 		return classId + " PersmissionScheme";
 	}
 
-	private static String getDayProblemRemotePermissionSchemeNameByClassId(String classId) {
+	private static String getDayProblemRemotePermissionSchemeNameByClassId(
+			String classId) {
 		return "DayProblem" + classId + " PersmissionScheme";
 	}
 
@@ -180,7 +191,8 @@ public class LxitJiraManager {
 		}
 		String pinyinName;
 		RemoteUser user = null;
-		for (Iterator<Student> iterator = studentList.iterator(); iterator.hasNext();) {
+		for (Iterator<Student> iterator = studentList.iterator(); iterator
+				.hasNext();) {
 			Student student = iterator.next();
 			pinyinName = PinyinTools.getLoginNameFromStudent(student);
 			try {
@@ -189,7 +201,8 @@ public class LxitJiraManager {
 				e.printStackTrace();
 			}
 			try {
-				user = j.createUser(a, pinyinName, pinyinName, student.getName(), student.getId() + "@gmail.com");
+				user = j.createUser(a, pinyinName, pinyinName,
+						student.getName(), student.getId() + "@gmail.com");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -200,7 +213,8 @@ public class LxitJiraManager {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			System.out.println("≥…π¶¥¥Ω®”√ªß:" + student.getName() + "µ«¬º√˚Œ™:" + pinyinName);
+			System.out.println("ÔøΩ…πÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ√ªÔøΩ:" + student.getName() + "ÔøΩÔøΩ¬ºÔøΩÔøΩŒ™:"
+					+ pinyinName);
 		}
 		// jiraSoapService.createUser(authToken, "username", "password",
 		// "fullname",
@@ -211,21 +225,23 @@ public class LxitJiraManager {
 
 	private static void createGroups() {
 
-		for (Iterator<String> iterator = classList.iterator(); iterator.hasNext();) {
+		for (Iterator<String> iterator = classList.iterator(); iterator
+				.hasNext();) {
 			String className = iterator.next();
 			try {
-				JiraTools.getJiraSoapService().deleteGroup(JiraTools.getAuth(), getGroupNameFromClassName(className),
-						null);
+				JiraTools.getJiraSoapService().deleteGroup(JiraTools.getAuth(),
+						getGroupNameFromClassName(className), null);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 
 		}
-		for (Iterator<String> iterator = classList.iterator(); iterator.hasNext();) {
+		for (Iterator<String> iterator = classList.iterator(); iterator
+				.hasNext();) {
 			String className = iterator.next();
 			try {
-				JiraTools.getJiraSoapService().createGroup(JiraTools.getAuth(), getGroupNameFromClassName(className),
-						null);
+				JiraTools.getJiraSoapService().createGroup(JiraTools.getAuth(),
+						getGroupNameFromClassName(className), null);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -304,16 +320,21 @@ public class LxitJiraManager {
 				RemotePermissionScheme remotePermissionScheme = getPermissionSchemeFromName(getRemotePermissionSchemeNameByClassId(classId));
 
 				if (remotePermissionScheme != null) {
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 10L),
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 10L),
 							j.getGroup(a, getGroupNameFromClassName(classId)));
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 11L),
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 11L),
 							j.getGroup(a, getGroupNameFromClassName(classId)));
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 12L),
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 12L),
 							j.getGroup(a, getGroupNameFromClassName(classId)));
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 15L),
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 15L),
 							j.getGroup(a, getGroupNameFromClassName(classId)));
 				}
-				System.out.println("update permission success :" + getGroupNameFromClassName(classId));
+				System.out.println("update permission success :"
+						+ getGroupNameFromClassName(classId));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -329,19 +350,31 @@ public class LxitJiraManager {
 				RemotePermissionScheme remotePermissionScheme = getPermissionSchemeFromName(getRemotePermissionSchemeNameByClassId(classId));
 
 				if (remotePermissionScheme != null) {
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 10L), teacherGroup);
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 11L), teacherGroup);
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 12L), teacherGroup);
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 13L), teacherGroup);
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 14L), teacherGroup);
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 15L), teacherGroup);
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 17L), teacherGroup);
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 35L), teacherGroup);
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 37L), teacherGroup);
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 39L), teacherGroup);
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 42L), teacherGroup);
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 10L), teacherGroup);
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 11L), teacherGroup);
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 12L), teacherGroup);
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 13L), teacherGroup);
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 14L), teacherGroup);
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 15L), teacherGroup);
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 17L), teacherGroup);
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 35L), teacherGroup);
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 37L), teacherGroup);
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 39L), teacherGroup);
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 42L), teacherGroup);
 				}
-				System.out.println("update permission success :" + getGroupNameFromClassName(classId));
+				System.out.println("update permission success :"
+						+ getGroupNameFromClassName(classId));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -356,27 +389,66 @@ public class LxitJiraManager {
 				RemotePermissionScheme remotePermissionScheme = getPermissionSchemeFromName(getRemotePermissionSchemeNameByClassId(classId));
 
 				if (remotePermissionScheme != null) {
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 10L), j.getUser(a, "admin"));
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 11L), j.getUser(a, "admin"));
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 12L), j.getUser(a, "admin"));
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 13L), j.getUser(a, "admin"));
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 14L), j.getUser(a, "admin"));
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 15L), j.getUser(a, "admin"));
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 17L), j.getUser(a, "admin"));
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 18L), j.getUser(a, "admin"));
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 23L), j.getUser(a, "admin"));
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 35L), j.getUser(a, "admin"));
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 36L), j.getUser(a, "admin"));
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 37L), j.getUser(a, "admin"));
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 38L), j.getUser(a, "admin"));
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 39L), j.getUser(a, "admin"));
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 40L), j.getUser(a, "admin"));
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 41L), j.getUser(a, "admin"));
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 42L), j.getUser(a, "admin"));
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 43L), j.getUser(a, "admin"));
-					j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 16L), j.getUser(a, "admin"));
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 10L),
+							j.getUser(a, "admin"));
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 11L),
+							j.getUser(a, "admin"));
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 12L),
+							j.getUser(a, "admin"));
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 13L),
+							j.getUser(a, "admin"));
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 14L),
+							j.getUser(a, "admin"));
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 15L),
+							j.getUser(a, "admin"));
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 17L),
+							j.getUser(a, "admin"));
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 18L),
+							j.getUser(a, "admin"));
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 23L),
+							j.getUser(a, "admin"));
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 35L),
+							j.getUser(a, "admin"));
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 36L),
+							j.getUser(a, "admin"));
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 37L),
+							j.getUser(a, "admin"));
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 38L),
+							j.getUser(a, "admin"));
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 39L),
+							j.getUser(a, "admin"));
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 40L),
+							j.getUser(a, "admin"));
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 41L),
+							j.getUser(a, "admin"));
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 42L),
+							j.getUser(a, "admin"));
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 43L),
+							j.getUser(a, "admin"));
+					j.addPermissionTo(a, remotePermissionScheme,
+							new RemotePermission("", 16L),
+							j.getUser(a, "admin"));
 				}
-				System.out.println("update permission success :" + getGroupNameFromClassName(classId));
+				System.out.println("update permission success :"
+						+ getGroupNameFromClassName(classId));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -388,7 +460,8 @@ public class LxitJiraManager {
 		List<String> list = classList;
 		for (String classId : list) {
 			try {
-				RemoteProject projectByKey = j.getProjectByKey(a, createProjectKey(classId, "DL"));
+				RemoteProject projectByKey = j.getProjectByKey(a,
+						createProjectKey(classId, "DL"));
 				projectByKey
 						.setPermissionScheme(getPermissionSchemeFromClassId(getRemotePermissionSchemeNameByClassId(classId)));
 				j.updateProject(a, projectByKey);
@@ -400,9 +473,11 @@ public class LxitJiraManager {
 
 	}
 
-	public static RemotePermissionScheme getPermissionSchemeFromName(String permissionSchemeName)
-			throws RemoteException, RemotePermissionException, RemoteAuthenticationException,
-			com.atlassian.jira.rpc.soap.client.RemoteException, RemoteValidationException {
+	public static RemotePermissionScheme getPermissionSchemeFromName(
+			String permissionSchemeName) throws RemoteException,
+			RemotePermissionException, RemoteAuthenticationException,
+			com.atlassian.jira.rpc.soap.client.RemoteException,
+			RemoteValidationException {
 		RemotePermissionScheme[] permissionSchemes = j.getPermissionSchemes(a);
 
 		for (int i = 0; i < permissionSchemes.length; i++) {
@@ -415,7 +490,8 @@ public class LxitJiraManager {
 
 	public static void deleteIssue() {
 		try {
-			RemoteIssue[] remoteIssues = j.getIssuesFromJqlSearch(a, "project != DLTWO ", 1000);
+			RemoteIssue[] remoteIssues = j.getIssuesFromJqlSearch(a,
+					"project != DLTWO ", 1000);
 			for (int i = 0; i < remoteIssues.length; i++) {
 				System.out.println("Main.deleteIssue()" + remoteIssues[i]);
 				j.deleteIssue(a, remoteIssues[i].getKey());
@@ -444,45 +520,61 @@ public class LxitJiraManager {
 
 	}
 
-	private static void updateStudentDayProblemPermissionFromClassId(String classId) {
+	private static void updateStudentDayProblemPermissionFromClassId(
+			String classId) {
 		try {
 			RemotePermissionScheme permission = getPermissionSchemeFromName(getDayProblemRemotePermissionSchemeNameByClassId(classId));
 
 			if (permission != null) {
-				j.addPermissionTo(a, permission, new RemotePermission("", PERMISSION_BROWSE),
-						j.getGroup(a, getGroupNameFromClassName(classId)));
-				j.addPermissionTo(a, permission, new RemotePermission("", PERMISSION_CREATE_ISSUE),
-						j.getGroup(a, getGroupNameFromClassName(classId)));
-				j.addPermissionTo(a, permission, new RemotePermission("", PERMISSION_EDIT_ISSUE),
-						j.getGroup(a, getGroupNameFromClassName(classId)));
-				j.addPermissionTo(a, permission, new RemotePermission("", PERMISSION_CLOSE_ISSUE),
-						j.getGroup(a, getGroupNameFromClassName(classId)));
-				j.addPermissionTo(a, permission, new RemotePermission("", PERMISSION_ADD_COMMENT),
-						j.getGroup(a, getGroupNameFromClassName(classId)));
-				j.addPermissionTo(a, permission, new RemotePermission("", PERMISSION_EDIT_OWN_COMMENT),
-						j.getGroup(a, getGroupNameFromClassName(classId)));
+				j.addPermissionTo(a, permission, new RemotePermission("",
+						PERMISSION_BROWSE), j.getGroup(a,
+						getGroupNameFromClassName(classId)));
+				j.addPermissionTo(a, permission, new RemotePermission("",
+						PERMISSION_CREATE_ISSUE), j.getGroup(a,
+						getGroupNameFromClassName(classId)));
+				j.addPermissionTo(a, permission, new RemotePermission("",
+						PERMISSION_EDIT_ISSUE), j.getGroup(a,
+						getGroupNameFromClassName(classId)));
+				j.addPermissionTo(a, permission, new RemotePermission("",
+						PERMISSION_CLOSE_ISSUE), j.getGroup(a,
+						getGroupNameFromClassName(classId)));
+				j.addPermissionTo(a, permission, new RemotePermission("",
+						PERMISSION_ADD_COMMENT), j.getGroup(a,
+						getGroupNameFromClassName(classId)));
+				j.addPermissionTo(a, permission, new RemotePermission("",
+						PERMISSION_EDIT_OWN_COMMENT), j.getGroup(a,
+						getGroupNameFromClassName(classId)));
 			}
-			System.out.println("update permission success :" + getGroupNameFromClassName(classId));
+			System.out.println("update permission success :"
+					+ getGroupNameFromClassName(classId));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 	}
 
-	private static void updateTeacherDayProblemPermissionFromClassId(String classId) {
+	private static void updateTeacherDayProblemPermissionFromClassId(
+			String classId) {
 		try {
 			RemoteGroup teacherGroup = j.getGroup(a, TEACHER_GROUP_NAME);
 			RemotePermissionScheme permission = getPermissionSchemeFromName(getDayProblemRemotePermissionSchemeNameByClassId(classId));
 
 			if (permission != null) {
-				j.addPermissionTo(a, permission, new RemotePermission("", PERMISSION_BROWSE), teacherGroup);
-				j.addPermissionTo(a, permission, new RemotePermission("", PERMISSION_EDIT_ISSUE), teacherGroup);
-				j.addPermissionTo(a, permission, new RemotePermission("", PERMISSION_RESOLVE_ISSUE), teacherGroup);
-				j.addPermissionTo(a, permission, new RemotePermission("", PERMISSION_ADD_COMMENT), teacherGroup);
-				j.addPermissionTo(a, permission, new RemotePermission("", PERMISSION_EDIT_OWN_COMMENT), teacherGroup);
-				j.addPermissionTo(a, permission, new RemotePermission("", PERMISSION_ASSIGNABLE), teacherGroup);
+				j.addPermissionTo(a, permission, new RemotePermission("",
+						PERMISSION_BROWSE), teacherGroup);
+				j.addPermissionTo(a, permission, new RemotePermission("",
+						PERMISSION_EDIT_ISSUE), teacherGroup);
+				j.addPermissionTo(a, permission, new RemotePermission("",
+						PERMISSION_RESOLVE_ISSUE), teacherGroup);
+				j.addPermissionTo(a, permission, new RemotePermission("",
+						PERMISSION_ADD_COMMENT), teacherGroup);
+				j.addPermissionTo(a, permission, new RemotePermission("",
+						PERMISSION_EDIT_OWN_COMMENT), teacherGroup);
+				j.addPermissionTo(a, permission, new RemotePermission("",
+						PERMISSION_ASSIGNABLE), teacherGroup);
 			}
-			System.out.println("update permission success :" + getGroupNameFromClassName(classId));
+			System.out.println("update permission success :"
+					+ getGroupNameFromClassName(classId));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -498,7 +590,8 @@ public class LxitJiraManager {
 			e.printStackTrace();
 		}
 		try {
-			user = j.createUser(a, loginName, loginName, student.getName(), student.getId() + "@gmail.com");
+			user = j.createUser(a, loginName, loginName, student.getName(),
+					student.getId() + "@gmail.com");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -509,7 +602,8 @@ public class LxitJiraManager {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("≥…π¶¥¥Ω®”√ªß:" + student.getName() + "µ«¬º√˚Œ™:" + loginName);
+		System.out.println("ÔøΩ…πÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ√ªÔøΩ:" + student.getName() + "ÔøΩÔøΩ¬ºÔøΩÔøΩŒ™:"
+				+ loginName);
 
 	}
 
@@ -521,7 +615,8 @@ public class LxitJiraManager {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("keys:" + createProjectKey(classId, "") + "  name:" + "DayLog" + classId);
+		System.out.println("keys:" + createProjectKey(classId, "") + "  name:"
+				+ "DayLog" + classId);
 	}
 
 	public static void createStudnetAndGroup(LxitClass lxitClass) {
@@ -529,17 +624,19 @@ public class LxitJiraManager {
 		studentList = DBManager.getStudentListFromClassId(lxitClass.getId());
 		String pinyinName;
 		RemoteUser user = null;
-		for (Iterator<Student> iterator = studentList.iterator(); iterator.hasNext();) {
+		for (Iterator<Student> iterator = studentList.iterator(); iterator
+				.hasNext();) {
 			Student student = iterator.next();
 			pinyinName = PinyinTools.getLoginNameFromStudent(student);
 			try {
 				j.deleteUser(a, pinyinName);
 			} catch (Exception e) {
 				// e.printStackTrace();
-				System.out.println("≤ª¥Ê‘⁄’‚∏ˆ”√ªß,…æ≥˝≤ª≥…π¶");
+				System.out.println("ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ√ªÔøΩ,…æÔøΩÔøΩ…πÔøΩ");
 			}
 			try {
-				user = j.createUser(a, pinyinName, pinyinName, student.getName(), student.getId() + "@gmail.com");
+				user = j.createUser(a, pinyinName, pinyinName,
+						student.getName(), student.getId() + "@gmail.com");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -550,14 +647,17 @@ public class LxitJiraManager {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			System.out.println("≥…π¶¥¥Ω®”√ªß:" + student.getName() + "µ«¬º√˚Œ™:" + pinyinName);
+			System.out.println("ÔøΩ…πÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ√ªÔøΩ:" + student.getName() + "ÔøΩÔøΩ¬ºÔøΩÔøΩŒ™:"
+					+ pinyinName);
 		}
 
 	}
 
 	public static void createGroup(String id) {
 		try {
-			j.createGroup(a, id, null);
+			if (j.getGroup(a, id) == null) {
+				j.createGroup(a, id, null);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -585,91 +685,137 @@ public class LxitJiraManager {
 	public static void createDayLogPermissionsAndScheme(String classId) {
 		RemotePermissionScheme remotePermissionScheme = null;
 		try {
-			remotePermissionScheme = j.createPermissionScheme(a, getDayLogPermissionSchemeNameFromClassId(classId),
-					classId + " PermissionScheme Desc");
+			remotePermissionScheme = j.createPermissionScheme(a,
+					getDayLogPermissionSchemeNameFromClassId(classId), classId
+							+ " PermissionScheme Desc");
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
 
-		System.out.println("¥¥Ω®»®œﬁ<" + getDayLogPermissionSchemeNameFromClassId(classId) + ">≥…π¶");
+		System.out.println("ÔøΩÔøΩÔøΩÔøΩ»®ÔøΩÔøΩ<"
+				+ getDayLogPermissionSchemeNameFromClassId(classId) + ">ÔøΩ…πÔøΩ");
 		try {
 
-			addStudentTeacherAdminPermissionToCurrentPermissionScheme(classId, remotePermissionScheme);
+			addStudentTeacherAdminPermissionToCurrentPermissionScheme(classId,
+					remotePermissionScheme);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	private static void addStudentTeacherAdminPermissionToCurrentPermissionScheme(String classId,
-			RemotePermissionScheme remotePermissionScheme) throws RemoteException, RemotePermissionException,
+	private static void addStudentTeacherAdminPermissionToCurrentPermissionScheme(
+			String classId, RemotePermissionScheme remotePermissionScheme)
+			throws RemoteException, RemotePermissionException,
 			RemoteValidationException, RemoteAuthenticationException,
 			com.atlassian.jira.rpc.soap.client.RemoteException {
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 10L),
-				j.getGroup(a, getGroupNameFromClassName(classId)));
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 11L),
-				j.getGroup(a, getGroupNameFromClassName(classId)));
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 12L),
-				j.getGroup(a, getGroupNameFromClassName(classId)));
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 15L),
-				j.getGroup(a, getGroupNameFromClassName(classId)));
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				10L), j.getGroup(a, getGroupNameFromClassName(classId)));
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				11L), j.getGroup(a, getGroupNameFromClassName(classId)));
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				12L), j.getGroup(a, getGroupNameFromClassName(classId)));
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				15L), j.getGroup(a, getGroupNameFromClassName(classId)));
 
 		RemoteGroup teacherGroup = j.getGroup(a, TEACHER_GROUP_NAME);
 
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 10L), teacherGroup);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 11L), teacherGroup);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 12L), teacherGroup);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 13L), teacherGroup);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 14L), teacherGroup);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 15L), teacherGroup);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 17L), teacherGroup);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 35L), teacherGroup);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 37L), teacherGroup);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 39L), teacherGroup);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 42L), teacherGroup);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				10L), teacherGroup);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				11L), teacherGroup);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				12L), teacherGroup);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				13L), teacherGroup);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				14L), teacherGroup);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				15L), teacherGroup);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				17L), teacherGroup);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				35L), teacherGroup);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				37L), teacherGroup);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				39L), teacherGroup);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				42L), teacherGroup);
 
 		RemoteUser adminUser = j.getUser(a, "admin");
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 10L), adminUser);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 11L), adminUser);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 12L), adminUser);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 13L), adminUser);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 14L), adminUser);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 15L), adminUser);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 16L), adminUser);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 17L), adminUser);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 18L), adminUser);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 19L), adminUser);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 20L), adminUser);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 21L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				10L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				11L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				12L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				13L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				14L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				15L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				16L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				17L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				18L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				19L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				20L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				21L), adminUser);
 		// j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
 		// 22L), adminUser);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 23L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				23L), adminUser);
 		// j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
 		// 24L), adminUser);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 25L), adminUser);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 26L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				25L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				26L), adminUser);
 		// j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
 		// 27L), adminUser);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 28L), adminUser);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 29L), adminUser);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 30L), adminUser);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 31L), adminUser);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 32L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				28L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				29L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				30L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				31L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				32L), adminUser);
 		// j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
 		// 33L), adminUser);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 34L), adminUser);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 35L), adminUser);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 36L), adminUser);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 37L), adminUser);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 38L), adminUser);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 39L), adminUser);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 40L), adminUser);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 41L), adminUser);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 42L), adminUser);
-		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 43L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				34L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				35L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				36L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				37L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				38L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				39L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				40L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				41L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				42L), adminUser);
+		j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("",
+				43L), adminUser);
 	}
 
-	private static String getDayLogPermissionSchemeNameFromClassId(String classId) {
+	private static String getDayLogPermissionSchemeNameFromClassId(
+			String classId) {
 		return classId + "DayLogPermissionScheme";
 	}
 
@@ -679,11 +825,13 @@ public class LxitJiraManager {
 		j.progressWorkflowAction(a, issueKey, "5", map);
 	}
 
-	public static RemoteIssue[] getIssuesByJql(String jql) throws Exception, Throwable {
+	public static RemoteIssue[] getIssuesByJql(String jql) throws Exception,
+			Throwable {
 		return j.getIssuesFromJqlSearch(a, jql, 800);
 	}
 
-	public static void fixIssueBy1003(String key) throws Exception, RemoteException {
+	public static void fixIssueBy1003(String key) throws Exception,
+			RemoteException {
 		RemoteFieldValue[] map = null;
 		j.progressWorkflowAction(a, key, "11", map);
 
@@ -727,6 +875,32 @@ public class LxitJiraManager {
 			e.printStackTrace();
 		}
 		return createIssue;
+
+	}
+
+	public static void createJiraStudentsToGroup(
+			List<com.lxit.entity.Student> classStudentList, String className)
+			throws Exception, RemoteValidationException,
+			RemoteAuthenticationException,
+			com.atlassian.jira.rpc.soap.client.RemoteException, RemoteException {
+		String pinyinName;
+		RemoteUser user = null;
+		RemoteGroup group;
+		group = j.getGroup(a, className);
+		for (Iterator<com.lxit.entity.Student> iterator = classStudentList
+				.iterator(); iterator.hasNext();) {
+			com.lxit.entity.Student student = iterator.next();
+			pinyinName = PinyinTools.getLoginNameFromStudent(student);
+			try {
+				user = j.createUser(a, pinyinName, pinyinName,
+						student.getName(), student.getId() + "@gmail.com");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			j.addUserToGroup(a, group, user);
+			System.out.println("ÂàõÂª∫Â≠¶Áîü:" + student.getName() + "ÊãºÈü≥Âêç‰∏∫:"
+					+ pinyinName);
+		}
 
 	}
 }

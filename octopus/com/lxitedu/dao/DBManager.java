@@ -11,7 +11,7 @@ import java.util.List;
 import com.lxitedu.bean.Student;
 
 public class DBManager {
-  private static String STUDENT_TABLE = "studentdev";
+  private static String STUDENT_TABLE = "student";
   private static Connection connect = DBConnection.getConnection();
   private static String querySql = "select id,classid,name,sex,native,nation,education,birth,hometelephone,mobilephone,idcard,homeaddress,dateofenrollment from "
       + STUDENT_TABLE + " order by id";

@@ -1,9 +1,13 @@
 package com.lxitedu.service.jira;
 
+import java.util.List;
+
 import com.atlassian.jira.rpc.soap.client.LxitJiraManager;
+import com.atlassian.jira.rpc.soap.client.RemoteAuthenticationException;
 import com.atlassian.jira.rpc.soap.client.RemoteException;
 import com.atlassian.jira.rpc.soap.client.RemoteIssue;
 import com.atlassian.jira.rpc.soap.client.RemoteProject;
+import com.atlassian.jira.rpc.soap.client.RemoteValidationException;
 import com.lxitedu.bean.LxitClass;
 import com.lxitedu.bean.Student;
 
@@ -103,5 +107,16 @@ public class LxitJiraService {
 	public RemoteProject getProjectByKey(String string) {
 		// TODO Auto-generated method stub
 		return LxitJiraManager.getProjectByKey(string);
+	}
+
+	public void createJiraStudentsToGroup(
+			List<com.lxit.entity.Student> classStudentList, String className) {
+		try {
+			LxitJiraManager.createJiraStudentsToGroup(classStudentList,
+					className);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 }

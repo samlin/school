@@ -14,7 +14,7 @@ public class DBConnection {
       // DriverManager.getConnection("jdbc:mysql://192.168.1.236:3306/lxitdev",
       // "samlin@192.168.1.249",
       // "samlinzhang");
-      connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/lxitdev", "root", "");
+      connect = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/shopxx", "root", "");
     } catch (SQLException e) {
       e.printStackTrace();
     } catch (ClassNotFoundException e) {

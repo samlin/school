@@ -7,7 +7,10 @@ import javax.annotation.Resource;
 import org.apache.struts2.convention.annotation.ParentPackage;
 
 import com.lxit.entity.LxClass;
+import com.lxit.entity.Student;
 import com.lxit.service.LxClassService;
+import com.lxit.service.StudentService;
+import com.lxitedu.bean.LxitClass;
 import com.lxitedu.service.jira.LxitJiraService;
 import com.opensymphony.xwork2.interceptor.annotations.InputConfig;
 
@@ -33,6 +36,8 @@ public class LxClassAction extends BaseAdminAction {
 
 	@Resource
 	private LxClassService lxClassService;
+	@Resource
+	private StudentService studentService;
 
 	// 添加
 	public String add() {
@@ -58,6 +63,8 @@ public class LxClassAction extends BaseAdminAction {
 	public String dayLog() {
 		LxitJiraService tt=new LxitJiraService();
 		tt.createGroup(id);
+		List<Student> classStudentList = studentService.getList("classId", id);
+		tt.createJiraStudentsToGroup(classStudentList,id);
 		return SUCCESS;
 	}
 

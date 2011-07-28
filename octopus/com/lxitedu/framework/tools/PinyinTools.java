@@ -30,4 +30,8 @@ public class PinyinTools {
   public static String getLoginNameFromStudent(Student student) {
     return student.getClassId().toLowerCase() + "." + PinyinTools.getStringPinYin(student.getName());
   }
+
+public static String getLoginNameFromStudent(com.lxit.entity.Student student) {
+	  return student.getClassId().toLowerCase() + "." + PinyinTools.getStringPinYin(student.getName());
+}
 }
