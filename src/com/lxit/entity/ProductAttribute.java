@@ -19,125 +19,112 @@ import org.apache.commons.lang.StringUtils;
 
 /**
  * 实体类 - 商品属性
- * ============================================================================
- * 版权所有 2008-2010 长沙鼎诚软件有限公司，并保留所有权利。
- * ----------------------------------------------------------------------------
- * 提示：在未取得SHOP++商业授权之前，您不能将本软件应用于商业用途，否则SHOP++将保留追究的权力。
- * ----------------------------------------------------------------------------
- * 官方网站：http://www.shopxx.net
- * ----------------------------------------------------------------------------
- * KEY: SHOPXX683FD9A1F4936F9B8563BDB221B35259
- * ============================================================================
  */
 
 @Entity
-@Table(
-	uniqueConstraints = {
-		@UniqueConstraint(columnNames = {"name", "productType_id"})
-	}
-)
+@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "name", "productType_id" }) })
 public class ProductAttribute extends BaseEntity {
 
-	private static final long serialVersionUID = 2989102568413246570L;
-	
-	// 属性类型：
-	public enum AttributeType {
-		text, number, alphaint, select, checkbox, date
-	}
+    private static final long serialVersionUID = 2989102568413246570L;
 
-	private String name;// 属性名称
-	private AttributeType attributeType;// 属性类型
-	private Boolean isRequired;// 是否必填
-	private Boolean isEnabled;// 是否启用
-	private Integer orderList;// 排序
-	private String attributeOptionStore;// 可选项储存
-	
-	private ProductType productType;// 商品类型
+    // 属性类型：
+    public enum AttributeType {
+        text, number, alphaint, select, checkbox, date
+    }
 
-	@Column(nullable = false)
-	public String getName() {
-		return name;
-	}
+    private String name;// 属性名称
+    private AttributeType attributeType;// 属性类型
+    private Boolean isRequired;// 是否必填
+    private Boolean isEnabled;// 是否启用
+    private Integer orderList;// 排序
+    private String attributeOptionStore;// 可选项储存
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    private ProductType productType;// 商品类型
 
-	@Enumerated
-	@Column(nullable = false)
-	public AttributeType getAttributeType() {
-		return attributeType;
-	}
+    @Column(nullable = false)
+    public String getName() {
+        return name;
+    }
 
-	public void setAttributeType(AttributeType attributeType) {
-		this.attributeType = attributeType;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	@Column(nullable = false)
-	public Boolean getIsRequired() {
-		return isRequired;
-	}
+    @Enumerated
+    @Column(nullable = false)
+    public AttributeType getAttributeType() {
+        return attributeType;
+    }
 
-	public void setIsRequired(Boolean isRequired) {
-		this.isRequired = isRequired;
-	}
+    public void setAttributeType(AttributeType attributeType) {
+        this.attributeType = attributeType;
+    }
 
-	@Column(nullable = false)
-	public Boolean getIsEnabled() {
-		return isEnabled;
-	}
+    @Column(nullable = false)
+    public Boolean getIsRequired() {
+        return isRequired;
+    }
 
-	public void setIsEnabled(Boolean isEnabled) {
-		this.isEnabled = isEnabled;
-	}
+    public void setIsRequired(Boolean isRequired) {
+        this.isRequired = isRequired;
+    }
 
-	@Column(nullable = false)
-	public Integer getOrderList() {
-		return orderList;
-	}
+    @Column(nullable = false)
+    public Boolean getIsEnabled() {
+        return isEnabled;
+    }
 
-	public void setOrderList(Integer orderList) {
-		this.orderList = orderList;
-	}
-	
-	public String getAttributeOptionStore() {
-		return attributeOptionStore;
-	}
+    public void setIsEnabled(Boolean isEnabled) {
+        this.isEnabled = isEnabled;
+    }
 
-	public void setAttributeOptionStore(String attributeOptionStore) {
-		this.attributeOptionStore = attributeOptionStore;
-	}
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(nullable = false)
-	public ProductType getProductType() {
-		return productType;
-	}
+    @Column(nullable = false)
+    public Integer getOrderList() {
+        return orderList;
+    }
 
-	public void setProductType(ProductType productType) {
-		this.productType = productType;
-	}
+    public void setOrderList(Integer orderList) {
+        this.orderList = orderList;
+    }
 
-	// 获取可选项
-	@SuppressWarnings("unchecked")
-	@Transient
-	public List<String> getAttributeOptionList() {
-		if (StringUtils.isEmpty(attributeOptionStore)) {
-			return null;
-		}
-		JSONArray jsonArray = JSONArray.fromObject(attributeOptionStore);
-		return (List<String>) JSONSerializer.toJava(jsonArray);
-	}
-	
-	// 设置可选项
-	@Transient
-	public void setAttributeOptionList(List<String> attributeOptionList) {
-		if (attributeOptionList == null || attributeOptionList.size() == 0) {
-			attributeOptionStore = null;
-			return;
-		}
-		JSONArray jsonArray = JSONArray.fromObject(attributeOptionList);
-		attributeOptionStore = jsonArray.toString();
-	}
+    public String getAttributeOptionStore() {
+        return attributeOptionStore;
+    }
+
+    public void setAttributeOptionStore(String attributeOptionStore) {
+        this.attributeOptionStore = attributeOptionStore;
+    }
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(nullable = false)
+    public ProductType getProductType() {
+        return productType;
+    }
+
+    public void setProductType(ProductType productType) {
+        this.productType = productType;
+    }
+
+    // 获取可选项
+    @SuppressWarnings("unchecked")
+    @Transient
+    public List<String> getAttributeOptionList() {
+        if (StringUtils.isEmpty(attributeOptionStore)) {
+            return null;
+        }
+        JSONArray jsonArray = JSONArray.fromObject(attributeOptionStore);
+        return (List<String>) JSONSerializer.toJava(jsonArray);
+    }
+
+    // 设置可选项
+    @Transient
+    public void setAttributeOptionList(List<String> attributeOptionList) {
+        if (attributeOptionList == null || attributeOptionList.size() == 0) {
+            attributeOptionStore = null;
+            return;
+        }
+        JSONArray jsonArray = JSONArray.fromObject(attributeOptionList);
+        attributeOptionStore = jsonArray.toString();
+    }
 
 }

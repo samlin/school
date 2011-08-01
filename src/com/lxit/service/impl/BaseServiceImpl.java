@@ -9,106 +9,115 @@ import com.lxit.bean.Pager;
 import com.lxit.dao.BaseDao;
 import com.lxit.service.BaseService;
 
-
 /**
  * Service实现类 - Service实现类基类
- * ============================================================================
- * 版权所有 2008-2010 长沙鼎诚软件有限公司，并保留所有权利。
- * ----------------------------------------------------------------------------
- * 提示：在未取得SHOP++商业授权之前，您不能将本软件应用于商业用途，否则SHOP++将保留追究的权力。
- * ----------------------------------------------------------------------------
- * 官方网站：http://www.shopxx.net
- * ----------------------------------------------------------------------------
- * KEY: SHOPXX2C6B29872C5AE19E73A129BBF01DFF82
- * ============================================================================
  */
 
 public class BaseServiceImpl<T, PK extends Serializable> implements BaseService<T, PK> {
 
-	private BaseDao<T, PK> baseDao;
+    private BaseDao<T, PK> baseDao;
 
-	public BaseDao<T, PK> getBaseDao() {
-		return baseDao;
-	}
+    public BaseDao<T, PK> getBaseDao() {
+        return baseDao;
+    }
 
-	public void setBaseDao(BaseDao<T, PK> baseDao) {
-		this.baseDao = baseDao;
-	}
+    public void setBaseDao(BaseDao<T, PK> baseDao) {
+        this.baseDao = baseDao;
+    }
 
-	public T get(PK id) {
-		return baseDao.get(id);
-	}
+    @Override
+    public T get(PK id) {
+        return baseDao.get(id);
+    }
 
-	public T load(PK id) {
-		return baseDao.load(id);
-	}
-	
-	public List<T> get(PK[] ids) {
-		return baseDao.get(ids);
-	}
-	
-	public T get(String propertyName, Object value) {
-		return baseDao.get(propertyName, value);
-	}
-	
-	public List<T> getList(String propertyName, Object value) {
-		return baseDao.getList(propertyName, value);
-	}
+    @Override
+    public T load(PK id) {
+        return baseDao.load(id);
+    }
 
-	public List<T> getAll() {
-		return baseDao.getAll();
-	}
-	
-	public Long getTotalCount() {
-		return baseDao.getTotalCount();
-	}
+    @Override
+    public List<T> get(PK[] ids) {
+        return baseDao.get(ids);
+    }
 
-	public boolean isUnique(String propertyName, Object oldValue, Object newValue) {
-		return baseDao.isUnique(propertyName, oldValue, newValue);
-	}
-	
-	public boolean isExist(String propertyName, Object value) {
-		return baseDao.isExist(propertyName, value);
-	}
+    @Override
+    public T get(String propertyName, Object value) {
+        return baseDao.get(propertyName, value);
+    }
 
-	public PK save(T entity) {
-		return baseDao.save(entity);
-	}
+    @Override
+    public List<T> getList(String propertyName, Object value) {
+        return baseDao.getList(propertyName, value);
+    }
 
-	public void update(T entity) {
-		baseDao.update(entity);
-	}
+    @Override
+    public List<T> getAll() {
+        return baseDao.getAll();
+    }
 
-	public void delete(T entity) {
-		baseDao.delete(entity);
-	}
+    @Override
+    public Long getTotalCount() {
+        return baseDao.getTotalCount();
+    }
 
-	public void delete(PK id) {
-		baseDao.delete(id);
-	}
+    @Override
+    public boolean isUnique(String propertyName, Object oldValue, Object newValue) {
+        return baseDao.isUnique(propertyName, oldValue, newValue);
+    }
 
-	public void delete(PK[] ids) {
-		baseDao.delete(ids);
-	}
-	
-	public void flush() {
-		baseDao.flush();
-	}
+    @Override
+    public boolean isExist(String propertyName, Object value) {
+        return baseDao.isExist(propertyName, value);
+    }
 
-	public void clear() {
-		baseDao.clear();
-	}
-	
-	public void evict(Object object) {
-		baseDao.evict(object);
-	}
+    @Override
+    public PK save(T entity) {
+        return baseDao.save(entity);
+    }
 
-	public Pager findByPager(Pager pager) {
-		return baseDao.findByPager(pager);
-	}
-	
-	public Pager findByPager(Pager pager, DetachedCriteria detachedCriteria) {
-		return baseDao.findByPager(pager, detachedCriteria);
-	}
+    @Override
+    public void update(T entity) {
+        baseDao.update(entity);
+    }
+
+    @Override
+    public void delete(T entity) {
+        baseDao.delete(entity);
+    }
+
+    @Override
+    public void delete(PK id) {
+        baseDao.delete(id);
+    }
+
+    @Override
+    public void delete(PK[] ids) {
+        baseDao.delete(ids);
+    }
+
+    @Override
+    public void flush() {
+        baseDao.flush();
+    }
+
+    @Override
+    public void clear() {
+        baseDao.clear();
+    }
+
+    @Override
+    public void evict(Object object) {
+        baseDao.evict(object);
+    }
+
+    @Override
+    public Pager findByPager(Pager pager) {
+        return baseDao.findByPager(pager);
+    }
+
+    @Override
+    public Pager findByPager(Pager pager, DetachedCriteria detachedCriteria) {
+        return baseDao.findByPager(pager, detachedCriteria);
+    }
 
 }

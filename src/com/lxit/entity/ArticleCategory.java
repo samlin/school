@@ -12,111 +12,102 @@ import javax.persistence.Transient;
 
 /**
  * 实体类 - 文章分类
- * ============================================================================
- * 版权所有 2008-2010 长沙鼎诚软件有限公司，并保留所有权利。
- * ----------------------------------------------------------------------------
- * 提示：在未取得SHOP++商业授权之前，您不能将本软件应用于商业用途，否则SHOP++将保留追究的权力。
- * ----------------------------------------------------------------------------
- * 官方网站：http://www.shopxx.net
- * ----------------------------------------------------------------------------
- * KEY: SHOPXXA5C3E6A36433995CEACED1A2B0507513
- * ============================================================================
  */
 
 @Entity
 public class ArticleCategory extends BaseEntity {
 
-	private static final long serialVersionUID = -5132652107151648662L;
+    private static final long serialVersionUID = -5132652107151648662L;
 
-	public static final String PATH_SEPARATOR = ",";// 树路径分隔符
+    public static final String PATH_SEPARATOR = ",";// 树路径分隔符
 
-	private String name;// 分类名称
-	private String metaKeywords;// 页面关键词
-	private String metaDescription;// 页面描述
-	private Integer orderList;// 排序
-	private String path;// 树路径
-	
-	private ArticleCategory parent;// 上级分类
-	private Set<ArticleCategory> children;// 下级分类
-	private Set<Article> articleSet;// 文章
+    private String name;// 分类名称
+    private String metaKeywords;// 页面关键词
+    private String metaDescription;// 页面描述
+    private Integer orderList;// 排序
+    private String path;// 树路径
 
-	@Column(nullable = false)
-	public String getName() {
-		return name;
-	}
+    private ArticleCategory parent;// 上级分类
+    private Set<ArticleCategory> children;// 下级分类
+    private Set<Article> articleSet;// 文章
 
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	@Column(length = 5000)
-	public String getMetaKeywords() {
-		return metaKeywords;
-	}
+    @Column(nullable = false)
+    public String getName() {
+        return name;
+    }
 
-	public void setMetaKeywords(String metaKeywords) {
-		this.metaKeywords = metaKeywords;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	@Column(length = 5000)
-	public String getMetaDescription() {
-		return metaDescription;
-	}
+    @Column(length = 5000)
+    public String getMetaKeywords() {
+        return metaKeywords;
+    }
 
-	public void setMetaDescription(String metaDescription) {
-		this.metaDescription = metaDescription;
-	}
-	
-	@Column(nullable = false)
-	public Integer getOrderList() {
-		return orderList;
-	}
+    public void setMetaKeywords(String metaKeywords) {
+        this.metaKeywords = metaKeywords;
+    }
 
-	public void setOrderList(Integer orderList) {
-		this.orderList = orderList;
-	}
+    @Column(length = 5000)
+    public String getMetaDescription() {
+        return metaDescription;
+    }
 
-	@Column(nullable = true, length = 10000)
-	public String getPath() {
-		return path;
-	}
+    public void setMetaDescription(String metaDescription) {
+        this.metaDescription = metaDescription;
+    }
 
-	public void setPath(String path) {
-		this.path = path;
-	}
+    @Column(nullable = false)
+    public Integer getOrderList() {
+        return orderList;
+    }
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	public ArticleCategory getParent() {
-		return parent;
-	}
+    public void setOrderList(Integer orderList) {
+        this.orderList = orderList;
+    }
 
-	public void setParent(ArticleCategory parent) {
-		this.parent = parent;
-	}
+    @Column(nullable = true, length = 10000)
+    public String getPath() {
+        return path;
+    }
 
-	@OneToMany(mappedBy = "parent", fetch = FetchType.LAZY)
-	@OrderBy("orderList asc")
-	public Set<ArticleCategory> getChildren() {
-		return children;
-	}
+    public void setPath(String path) {
+        this.path = path;
+    }
 
-	public void setChildren(Set<ArticleCategory> children) {
-		this.children = children;
-	}
+    @ManyToOne(fetch = FetchType.LAZY)
+    public ArticleCategory getParent() {
+        return parent;
+    }
 
-	@OneToMany(mappedBy = "articleCategory", fetch = FetchType.LAZY)
-	public Set<Article> getArticleSet() {
-		return articleSet;
-	}
+    public void setParent(ArticleCategory parent) {
+        this.parent = parent;
+    }
 
-	public void setArticleSet(Set<Article> articleSet) {
-		this.articleSet = articleSet;
-	}
+    @OneToMany(mappedBy = "parent", fetch = FetchType.LAZY)
+    @OrderBy("orderList asc")
+    public Set<ArticleCategory> getChildren() {
+        return children;
+    }
 
-	// 获取分类层级（顶级分类：0）
-	@Transient
-	public Integer getLevel() {
-		return path.split(PATH_SEPARATOR).length - 1;
-	}
+    public void setChildren(Set<ArticleCategory> children) {
+        this.children = children;
+    }
+
+    @OneToMany(mappedBy = "articleCategory", fetch = FetchType.LAZY)
+    public Set<Article> getArticleSet() {
+        return articleSet;
+    }
+
+    public void setArticleSet(Set<Article> articleSet) {
+        this.articleSet = articleSet;
+    }
+
+    // 获取分类层级（顶级分类：0）
+    @Transient
+    public Integer getLevel() {
+        return path.split(PATH_SEPARATOR).length - 1;
+    }
 
 }
