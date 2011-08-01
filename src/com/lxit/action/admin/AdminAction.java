@@ -102,9 +102,9 @@ public class AdminAction extends BaseAdminAction {
             getSession().remove(SPRING_SECURITY_LAST_EXCEPTION);
         }
         String k = (String) servletContext.getAttribute("SHOPXX" + "_" + "KEY");
-        if (!StringUtils.containsIgnoreCase(k, "shopxx")) {
-            throw new ExceptionInInitializerError();
-        }
+        // if (!StringUtils.containsIgnoreCase(k, "shopxx")) {
+        // throw new ExceptionInInitializerError();
+        // }
         return "login";
     }
 
