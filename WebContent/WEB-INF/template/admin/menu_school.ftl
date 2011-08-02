@@ -35,16 +35,13 @@
 		</dl>
 		<dl>
 			<dt>
-				<span>配送管理</span>
+				<span>作业管理</span>
 			</dt>
 			<dd>
-				<a href="delivery_type!list.action" target="mainFrame">配送方式</a>
+				<a href="delivery_type!list.action" target="mainFrame">新建作业</a>
 			</dd>
 			<dd>
-				<a href="area!list.action" target="mainFrame">地区管理</a>
-			</dd>
-			<dd>
-				<a href="delivery_corp!list.action" target="mainFrame">物流公司</a>
+				<a href="area!list.action" target="mainFrame">作业列表</a>
 			</dd>
 		</dl>
 	</div>
