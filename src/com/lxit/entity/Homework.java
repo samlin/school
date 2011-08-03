@@ -1,6 +1,6 @@
 package com.lxit.entity;
 
-import org.hibernate.annotations.Entity;
+import javax.persistence.Entity;
 
 @Entity
 public class Homework extends BaseEntity {
