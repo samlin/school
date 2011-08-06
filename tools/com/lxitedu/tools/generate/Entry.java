@@ -41,7 +41,7 @@ public class Entry {
         //        new GenerateDAO(subject);
         //
         // // jsp
-        new GenerateEditJSPFreemarker(subject);
+        //        new GenerateEditJSPFreemarker(subject);
         //        new GenerateListJSPFreemarker(subject);
         //        // //
         //        new GenerateMaintClassNameActionFreemarker(subject);
@@ -70,7 +70,7 @@ public class Entry {
         // initializeData =
         // initializeDataStrBuffer.toString().split(Constant.SEPARATE);// 数据放入数组
 
-        String initializeData[] = { "lx_user", "lxit" };
+        String initializeData[] = { "homework", "" };
         return initializeData;
     }
 }

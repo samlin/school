@@ -107,17 +107,17 @@ public class GenerateBean extends BaseGenerate implements Observer {
         out.println("/*");
         out.println(" * @(#)" + className + ".java");
         out.println(" *");
-        out.println(" * Copyright (c) 2003 DCIVision Ltd");
+        out.println(" * Copyright (c) 2003 Lxit Ltd");
         out.println(" * All rights reserved.");
         out.println(" *");
-        out.println(" * This software is the confidential and proprietary information of DCIVision");
+        out.println(" * This software is the confidential and proprietary information of ");
         out.println(" * Ltd (\"Confidential Information\").  You shall not disclose such Confidential");
         out.println(" * Information and shall use it only in accordance with the terms of the license");
         out.println(" * agreement you entered into with DCIVision Ltd.");
         out.println(" */");
-        out.println("package " + packageName + ".bean;");
+        out.println("package " + packageName + "entity;");
         out.println();
-        out.println("import com.dcivision.framework.bean.AbstractBaseObject;");
+        out.println("import javax.persistence.Entity;");
         out.println();
         out.println("/**");
         out.println("  " + className + ".java");
@@ -125,7 +125,7 @@ public class GenerateBean extends BaseGenerate implements Observer {
         out.println("  This class is the serializable bean reflecting business logic uses.");
         out.println();
         out.println("    @author           " + author);
-        out.println("    @company          DCIVision Limited");
+        out.println("    @company          Lxit Limited");
         out.println("    @creation date    "
                 + (now.get(Calendar.DAY_OF_MONTH) < 10 ? ("0" + now.get(Calendar.DAY_OF_MONTH)) : ("" + now
                         .get(Calendar.DAY_OF_MONTH))) + "/" + month[now.get(Calendar.MONTH)] + "/"
@@ -133,9 +133,8 @@ public class GenerateBean extends BaseGenerate implements Observer {
         out.println("    @version          $Revision: 1.20 $");
         out.println("*/");
         out.println();
-        out.println("public class " + className + " extends AbstractBaseObject {");
-        out.println();
-        out.println("  public static final String REVISION = \"$Revision: 1.20 $\";");
+        out.println("@Entity");
+        out.println("public class " + className + " extends BaseEntity  {");
         out.println();
     }
 
@@ -173,7 +172,7 @@ public class GenerateBean extends BaseGenerate implements Observer {
 
     @Override
     protected String getSrcFileName() throws Exception {
-        srcFileName = srcPath + "/src/" + replaceString(packageName, ".", "/") + "/bean/" + className + ".java";
+        srcFileName = srcPath + "/src/" + replaceString(packageName, ".", "/") + "/entity/" + className + ".java";
         return srcFileName;
 
     }
@@ -187,7 +186,7 @@ public class GenerateBean extends BaseGenerate implements Observer {
             file.mkdir();
         }
         Thread.sleep(200);
-        file = new File(folderName + "/bean");
+        file = new File(folderName + "/entity");
         if (!file.exists()) {
             file.mkdir();
         }
