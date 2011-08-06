@@ -20,7 +20,8 @@ public class Entry {
     private static void generalAll(GeneralSubject subject) {
         //        new GenerateBean(subject);
         //        new ClassNameDaoFreemarker(subject);
-        new ClassNameDaoImplFreemarker(subject);
+        //        new ClassNameDaoImplFreemarker(subject);
+        new ClassNameServiceFreemarker(subject);
 
     }
 
