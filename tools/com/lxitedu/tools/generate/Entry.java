@@ -19,7 +19,9 @@ public class Entry {
 
     private static void generalAll(GeneralSubject subject) {
         //        new GenerateBean(subject);
-        new ClassNameDaoFreemarker(subject);
+        //        new ClassNameDaoFreemarker(subject);
+        new ClassNameDaoImplFreemarker(subject);
+
     }
 
     private static String[] getGeneralParametar() {
