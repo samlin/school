@@ -8,25 +8,6 @@ public class Entry {
         String[] initializeData = getGeneralParametar();
 
         generalAll(subject);
-        // new GenerateBean(subject);
-        // new GenerateDAO(subject);
-        // //
-        // // // jsp
-        // new GenerateEditJSPFreemarker(subject);
-        // new GenerateListJSPFreemarker(subject);
-        // // //
-        // new GenerateMaintClassNameActionFreemarker(subject);
-        // new GenerateMaintForm(subject);
-        // // // // //
-        // new GenerateListClassNameActionFreemarker(subject);
-        // new GenerateListClassNameFormFreemarker(subject);
-        // // // // //
-        // new GenerateStrutsConfigFreemarker(subject);
-        // // //
-        // new GenerateConfigSqlFreemarker(subject);
-        // new GenerateApplicationResourcesFreemarker(subject);
-        //
-        // new InitDBStructure(subject);
 
         try {
             subject.toNotify(initializeData);
@@ -37,25 +18,8 @@ public class Entry {
     }
 
     private static void generalAll(GeneralSubject subject) {
-        new GenerateBean(subject);
-        //        new GenerateDAO(subject);
-        //
-        // // jsp
-        //        new GenerateEditJSPFreemarker(subject);
-        //        new GenerateListJSPFreemarker(subject);
-        //        // //
-        //        new GenerateMaintClassNameActionFreemarker(subject);
-        //        new GenerateMaintForm(subject);
-        //        // // // //
-        //        new GenerateListClassNameActionFreemarker(subject);
-        //        new GenerateListClassNameFormFreemarker(subject);
-        //        // // // //
-        //        new GenerateStrutsConfigFreemarker(subject);
-        //        // //
-        //        new GenerateConfigSqlFreemarker(subject);
-        //        new GenerateApplicationResourcesFreemarker(subject);
-        //
-        //        new InitDBStructure(subject);
+        //        new GenerateBean(subject);
+        new ClassNameDaoFreemarker(subject);
     }
 
     private static String[] getGeneralParametar() {

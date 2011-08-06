@@ -51,7 +51,7 @@ import freemarker.template.Template;
 
 public abstract class BaseGenerateFreemarker {
 
-    protected static final String SRC_TEMPLATE_PATH = "src/com/lxitedu/tools/generate/template";
+    protected static final String SRC_TEMPLATE_PATH = "tools/com/lxitedu/tools/generate/template";
 
     public static final String REVISION = "$Revision: 1.16 $";
 
@@ -63,7 +63,7 @@ public abstract class BaseGenerateFreemarker {
     static String dbPassword = null;
 
     static String packageName = "";
-    static String basePackageName = "com.dcivision";
+    static String basePackageName = "com.lxit";
 
     static final String JAVA_INTEGER = "Integer";
     static final String JAVA_DECIMAL = "Float";
@@ -180,6 +180,7 @@ public abstract class BaseGenerateFreemarker {
         exceptionFields.put("updateDate", "Y");
         exceptionFields.put("recordStatus", "Y");
         exceptionFields.put("updateCount", "Y");
+        exceptionFields.put("modifyDate", "Y");
         hasRecordStatus = true;
     }
 
@@ -189,16 +190,16 @@ public abstract class BaseGenerateFreemarker {
         if (!path.endsWith("/")) {
             path += "/";
         }
-        path += "generate.properties";
+        path += "jdbc.properties";
         java.io.FileInputStream fis = new java.io.FileInputStream(new java.io.File(path));
         props.load(fis);
 
         author = props.getProperty("author");
         srcPath = props.getProperty("srcPath");
-        driverStr = props.getProperty("driverStr");
-        dbConnStr = props.getProperty("dbConnStr");
-        dbUsername = props.getProperty("dbUsername");
-        dbPassword = props.getProperty("dbPassword");
+        driverStr = props.getProperty("jdbc.driver");
+        dbConnStr = props.getProperty("jdbc.url");
+        dbUsername = props.getProperty("jdbc.username");
+        dbPassword = props.getProperty("jdbc.password");
     }
 
     protected abstract void setSrcFileName();
