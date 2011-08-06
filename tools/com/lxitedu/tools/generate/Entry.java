@@ -21,7 +21,8 @@ public class Entry {
         //        new GenerateBean(subject);
         //        new ClassNameDaoFreemarker(subject);
         //        new ClassNameDaoImplFreemarker(subject);
-        new ClassNameServiceFreemarker(subject);
+        //        new ClassNameServiceFreemarker(subject);
+        new ClassNameServiceImplFreemarker(subject);
 
     }
 
