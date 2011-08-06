@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="tools"/>
 	<classpathentry excluding="com/vaadin/demo/tutorial/addressbook/ui/|com/vaadin/demo/|com/vaadin/demo/tutorial/addressbook/|com/vaadin/demo/tutorial/addressbook/data/" kind="src" path="octopus"/>
 	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
