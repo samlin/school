@@ -762,4 +762,14 @@ public class LxitJiraManager {
         }
 
     }
+
+    public static RemoteUser[] getUsersfromGroupName(String groupName) {
+        RemoteGroup group = new RemoteGroup();
+        try {
+            group = j.getGroup(a, groupName);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return group.getUsers();
+    }
 }

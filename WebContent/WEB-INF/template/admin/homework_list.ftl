@@ -79,6 +79,7 @@
 						
 						<td>
 							<a href="homework!edit.action?id=${list.id}" title="[编辑]">[编辑]</a>
+							<a href="homework!create.action?id=${list.id}" title="[部署作业]">[部署作业]</a>
 						</td>
 					</tr>
 				</#list>
