@@ -18,10 +18,9 @@ public class HomeworkAction extends BaseAdminAction {
     @Resource
     private HomeworkService service;
 
-
     // 查看
     public String view() {
-         entity = service.load(id);
+        entity = service.load(id);
         return VIEW;
     }
 
@@ -40,6 +39,7 @@ public class HomeworkAction extends BaseAdminAction {
 
     // 添加
     public String add() {
+
         return INPUT;
     }
 
@@ -51,7 +51,7 @@ public class HomeworkAction extends BaseAdminAction {
 
     @InputConfig(resultName = "error")
     public String save() {
-
+        service.save(entity);
         redirectionUrl = "homework!list.action";
         return SUCCESS;
     }

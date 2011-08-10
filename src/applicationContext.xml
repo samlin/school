@@ -102,6 +102,7 @@
 				<value>com.lxit.entity.OrderLog</value>
 				<value>com.lxit.entity.LxClass</value>
 				<value>com.lxit.entity.Student</value>
+				<value>com.lxit.entity.Homework</value>
 			</list>
 		</property>
 	</bean>

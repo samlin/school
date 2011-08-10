@@ -25,46 +25,34 @@ import javax.persistence.Entity;
 */
 
 @Entity
-public class Homework extends BaseEntity  {
+public class Homework extends BaseEntity {
 
-  private String id = null;
-  private String classId = null;
-  private String summary = null;
-  private String description = null;
+    private static final long serialVersionUID = -6899644323171369766L;
+    private String classId = null;
+    private String summary = null;
+    private String description = null;
 
-  public Homework() {
-    super();
-  }
+    public String getClassId() {
+        return (this.classId);
+    }
 
-  public String getID() { 
-    return(this.id);
-  }
+    public void setClassId(String classId) {
+        this.classId = classId;
+    }
 
-  public void setID(String id) { 
-    this.id = id;
-  }
+    public String getSummary() {
+        return (this.summary);
+    }
 
-  public String getClassId() { 
-    return(this.classId);
-  }
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
 
-  public void setClassId(String classId) { 
-    this.classId = classId;
-  }
+    public String getDescription() {
+        return (this.description);
+    }
 
-  public String getSummary() { 
-    return(this.summary);
-  }
-
-  public void setSummary(String summary) { 
-    this.summary = summary;
-  }
-
-  public String getDescription() { 
-    return(this.description);
-  }
-
-  public void setDescription(String description) { 
-    this.description = description;
-  }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
