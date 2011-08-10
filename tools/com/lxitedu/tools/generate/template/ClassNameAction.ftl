@@ -4,23 +4,24 @@ import javax.annotation.Resource;
 
 import org.apache.struts2.convention.annotation.ParentPackage;
 
-import com.lxit.entity.Homework;
-import com.lxit.service.HomeworkService;
+import com.lxit.entity.${className};
+import com.lxit.service.${className}Service;
 import com.opensymphony.xwork2.interceptor.annotations.InputConfig;
 
 @ParentPackage("admin")
-public class HomeworkAction extends BaseAdminAction {
+public class ${className}Action extends BaseAdminAction {
 
     private static final long serialVersionUID = -5383463207248344967L;
 
-    private Homework entity;
+    private ${className} entity;
 
     @Resource
-    private HomeworkService service;
+    private ${className}Service service;
+
 
     // 查看
     public String view() {
-        entity = service.load(id);
+         entity = service.load(id);
         return VIEW;
     }
 
@@ -39,7 +40,6 @@ public class HomeworkAction extends BaseAdminAction {
 
     // 添加
     public String add() {
-
         return INPUT;
     }
 
@@ -51,8 +51,8 @@ public class HomeworkAction extends BaseAdminAction {
 
     @InputConfig(resultName = "error")
     public String save() {
-        service.save(entity);
-        redirectionUrl = "homework!list.action";
+
+        redirectionUrl = "${className ? uncap_first}!list.action";
         return SUCCESS;
     }
 
@@ -60,15 +60,16 @@ public class HomeworkAction extends BaseAdminAction {
     public String update() {
 
         service.update(getEntity());
-        redirectionUrl = "homework!list.action";
+        redirectionUrl = "${className ? uncap_first}!list.action";
         return SUCCESS;
     }
 
-    public Homework getEntity() {
+    public ${className} getEntity() {
         return entity;
     }
 
-    public void setEntity(Homework entity) {
+    public void setEntity(${className} entity) {
         this.entity = entity;
     }
+
 }

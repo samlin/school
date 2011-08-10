@@ -13,10 +13,16 @@ public class JiraTools {
     private static String password = "admin";
     private static String baseUrl = "http://192.168.1.252:8080/rpc/soap/jirasoapservice-v2";;
 
+    //    private static String baseUrl = "http://192.168.1.252:7070/rpc/soap/jirasoapservice-v2";;
+
     // private static String baseUrl =
     // "http://192.168.1.107:8080/rpc/soap/jirasoapservice-v2";;
     // private static String baseUrl =
     // "http://192.168.1.246:88/jira41/rpc/soap/jirasoapservice-v2";;
+    // "http://192.168.1.252:8080/rpc/soap/jirasoapservice-v2";;
+    // private static String baseUrl =
+    // "http://192.168.1.107:8080/rpc/soap/jirasoapservice-v2";;
+    //	private static String baseUrl = "http://192.168.1.246:88/jira41/rpc/soap/jirasoapservice-v2";;
 
     public static String getAuth() {
         SOAPSession soapSession = getSoapSession();

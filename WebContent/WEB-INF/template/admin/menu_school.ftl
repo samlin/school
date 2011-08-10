@@ -38,10 +38,10 @@
 				<span>作业管理</span>
 			</dt>
 			<dd>
-				<a href="delivery_type!list.action" target="mainFrame">新建作业</a>
+				<a href="homework!add.action" target="mainFrame">新建作业</a>
 			</dd>
 			<dd>
-				<a href="area!list.action" target="mainFrame">作业列表</a>
+				<a href="homework!list.action" target="mainFrame">作业列表</a>
 			</dd>
 		</dl>
 	</div>

@@ -2,7 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>添加/编辑作业 - Powered By ${systemConfig.systemName}</title>
+<title>添加/编辑班级 - Powered By ${systemConfig.systemName}</title>
+<meta name="Author" content="SHOP++ Team" />
+<meta name="Copyright" content="SHOP++" />
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <#include "/WEB-INF/template/common/include.ftl">
 <link href="${base}/template/admin/css/input.css" rel="stylesheet" type="text/css" />
@@ -15,36 +17,39 @@
 <body class="input">
 	<div class="body">
 		<div class="inputBar">
-			<h1><span class="icon">&nbsp;</span><#if isAdd??>添加作业<#else>编辑作业</#if></h1>
+			<h1><span class="icon">&nbsp;</span><#if isAdd??>添加班级<#else>编辑班级</#if></h1>
 		</div>
-		<form id="inputForm" class="validate" action="<#if isAdd??>homework!save.action<#else>homework!update.action</#if>" method="post">
-			<input type="hidden" name="entity.id" value="${id}" />
+		<form id="inputForm" class="validate" action="<#if isAdd??>lx_class!save.action<#else>lx_class!update.action</#if>" method="post">
+			<input type="hidden" name="id" value="${id}" />
 			<table class="inputTable">
 				<tr>
 					<th>
-						班级:
+						班级名称:
 					</th>
 					<td>
-						<input type="text" name="entity.classId"  value="${(entity.classId)!}" />
-						<label class="requireField">*</label>
-					</td>
-				</tr>
-					<th>
-						作业名称:
-					</th>
-					<td>
-						<input type="text" name="entity.summary"  value="${(entity.summary)!}" />
+						<input type="text" name="lxClass.name"  value="${(lxClass.name)!}" />
 						<label class="requireField">*</label>
 					</td>
 				</tr>
 				<tr>
 					<th>
-						作业描述:
+						班级描述:
 					</th>
 					<td>
-						<input type="text" name="entity.description" value="${(entity.description)!}"/>
+						<input type="text" name="lxClass.descs" value="${(lxClass.descs)!}"/>
 						<label class="requireField">*</label>
 					</td>
+				</tr>
+				<tr>
+					<th>
+						老师ID:
+					</th>
+					<td>
+						<input type="text" name="lxClass.teacherId" class="formText" value="${(lxClass.teacherId)!}" />
+					</td>
+				</tr>
+				<tr>
+					
 				</tr>
 				
 				<tr>

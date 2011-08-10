@@ -23,6 +23,7 @@ public class Entry {
         //        new ClassNameDaoImplFreemarker(subject);
         //        new ClassNameServiceFreemarker(subject);
         //        new ClassNameServiceImplFreemarker(subject);
+        new ClassNameActionFreemarker(subject);
 
     }
 
