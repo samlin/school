@@ -6,7 +6,7 @@ import org.apache.struts2.convention.annotation.ParentPackage;
 
 import com.lxit.entity.Homework;
 import com.lxit.service.HomeworkService;
-import com.lxitedu.jira.http.HomewrokJiraService;
+import com.lxitedu.jira.http.HomeworkJiraService;
 import com.opensymphony.xwork2.interceptor.annotations.InputConfig;
 
 @ParentPackage("admin")
@@ -75,7 +75,7 @@ public class HomeworkAction extends BaseAdminAction {
 
     public String create() {
         Homework homework = service.load(id);
-        HomewrokJiraService jirsService = new HomewrokJiraService();
+        HomeworkJiraService jirsService = new HomeworkJiraService();
         jirsService.createAllIssueByHomework(homework);
         return SUCCESS;
     }

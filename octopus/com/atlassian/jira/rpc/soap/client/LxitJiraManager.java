@@ -225,7 +225,7 @@ public class LxitJiraManager {
                 JiraTools.getJiraSoapService().deleteGroup(JiraTools.getAuth(), getGroupNameFromClassName(className),
                         null);
             } catch (Exception e) {
-                e.printStackTrace();
+                System.err.println(e.getMessage());
             }
 
         }
@@ -566,11 +566,10 @@ public class LxitJiraManager {
 
     public static void createGroup(String id) {
         try {
-            //            if (j.getGroup(a, id) == null) {
             j.createGroup(a, id, null);
-            //            }
+            System.out.println("LxitJiraManager.createGroup():" + id);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.err.println(e.getLocalizedMessage());
         }
 
     }

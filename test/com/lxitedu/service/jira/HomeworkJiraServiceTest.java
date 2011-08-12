@@ -10,11 +10,11 @@ import com.atlassian.jira.rpc.soap.client.RemoteIssue;
 import com.atlassian.jira.rpc.soap.client.RemoteProject;
 import com.atlassian.jira.rpc.soap.client.RemoteUser;
 import com.lxit.entity.Homework;
-import com.lxitedu.jira.http.HomewrokJiraService;
+import com.lxitedu.jira.http.HomeworkJiraService;
 
 public class HomeworkJiraServiceTest {
 
-    private final HomewrokJiraService service = new HomewrokJiraService();
+    private final HomeworkJiraService service = new HomeworkJiraService();
 
     public void testCreateTeacherIssue() {
         RemoteIssue issue = new RemoteIssue();
@@ -62,7 +62,7 @@ public class HomeworkJiraServiceTest {
         service.createAllIssueByHomework(homework);
     }
 
-    @Test
+    //    @Test
     public void testgetUsersFromClassIdAndNo() throws Exception {
         RemoteUser[] list = service.getUsersFromClassIdAndNo("1001", 1);
         Assert.assertEquals(5, list.length);
@@ -74,5 +74,10 @@ public class HomeworkJiraServiceTest {
         RemoteUser remoteUser = new RemoteUser();
         RemoteIssue teacherIssue = null;
         service.createLinkedIssueFromIssueKeyAndUser(subIssueKey, teacherIssue, remoteUser);
+    }
+
+    @Test
+    public void testCreateTeamsFromClass() throws Exception {
+        service.createTeamsFromClassName("1002");
     }
 }

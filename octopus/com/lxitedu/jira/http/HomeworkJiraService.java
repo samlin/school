@@ -12,10 +12,10 @@ import com.atlassian.jira.rpc.soap.client.RemoteProject;
 import com.atlassian.jira.rpc.soap.client.RemoteUser;
 import com.lxit.entity.Homework;
 
-public class HomewrokJiraService {
+public class HomeworkJiraService {
 
     private static final String GROUP_TEAM_PREFIX = "team";
-    private static final int MAX_TEAM_COUNT_FROM_CLASS = 1;
+    private static final int MAX_TEAM_COUNT_FROM_CLASS = 5;
     private static final String ISSUE_HOMEWORK_TYPE = "6";
     private static final String HORMWORK_PROJECT_PREFIX = "HOMEWORK";
     public static final String SUBTASK_ISSUE_TYPE = "5";
@@ -121,7 +121,17 @@ public class HomewrokJiraService {
     }
 
     public RemoteUser[] getUsersFromClassIdAndNo(String className, int i) {
-        String groupName = GROUP_TEAM_PREFIX + "_" + className + "_0" + i;
+        String groupName = getTeamNameFromClassNameAndNo(className, i);
         return LxitJiraManager.getUsersfromGroupName(groupName);
+    }
+
+    private String getTeamNameFromClassNameAndNo(String className, int i) {
+        return GROUP_TEAM_PREFIX + "_" + className + "_0" + i;
+    }
+
+    public void createTeamsFromClassName(String className) {
+        for (int i = 0; i < MAX_TEAM_COUNT_FROM_CLASS; i++) {
+            LxitJiraManager.createGroup(getTeamNameFromClassNameAndNo(className, i + 1));
+        }
     }
 }
