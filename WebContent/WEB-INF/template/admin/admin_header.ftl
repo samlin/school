@@ -4,8 +4,6 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>管理中心 - Powered By ${systemConfig.systemName}</title>
-<meta name="Author" content="SHOP++ Team" />
-<meta name="Copyright" content="SHOP++" />
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <#include "/WEB-INF/template/common/include.ftl">
 <link href="${base}/template/admin/css/header.css" rel="stylesheet" type="text/css" />
@@ -21,13 +19,13 @@
 		<div class="headerTop">
 			<div class="headerLink">
 				<span class="welcome">
-					<strong><@sec.authentication property="name" /></strong>&nbsp;您好samlintest!&nbsp;
+					<strong><@sec.authentication property="name" /></strong>&nbsp;!&nbsp;
 				</span>
 				<a href="admin!index.action" target="mainFrame">后台首页</a>|
-            	<a href="http://bbs.shopxx.net" target="_blank">技术支持</a>|
-                <a href="http://www.shopxx.net" target="_blank">购买咨询</a>|
-                <a href="http://about.shopxx.net" target="_blank">关于我们</a>|
-                <a href="http://contact.shopxx.net" target="_blank">联系我们</a>
+            	<a href="http://bbs.lxitedu.com" target="_blank">技术支持</a>|
+                <a href="http://www.lxitedu.com" target="_blank">购买咨询</a>|
+                <a href="http://www.lxitedu.com" target="_blank">关于我们</a>|
+                <a href="http://www.lxitedu.com" target="_blank">联系我们</a>
 			</div>
 		</div>
 		<div class="headerBottom">
