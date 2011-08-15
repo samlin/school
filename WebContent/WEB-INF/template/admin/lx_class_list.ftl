@@ -60,6 +60,7 @@ $().ready(function() {
 							<a href="lx_class!dayLog.action?id=${list.name}" title="编辑">[创建用户]</a>
 							<a href="lx_class!team.action?id=${list.name}" title="编辑">[创建小组]</a>
 							<a href="lx_class!dayLogProject.action?id=${list.name}" title="编辑">[创建日志]</a>
+							<a href="lx_class!howmworkProject.action?id=${list.name}" title="编辑">[创建日志]</a>
 						</td>
 					</tr>
 				</#list>

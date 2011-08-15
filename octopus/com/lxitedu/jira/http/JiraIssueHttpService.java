@@ -84,7 +84,7 @@ public class JiraIssueHttpService extends AbstractJiraIssueService {
             System.out.println("JiraIssueHttpService.createIssue()");
             Header locationHeader = post.getResponseHeader("location"); //$NON-NLS-1$
             if (!expectRedirect(post, "/browse/", false)) { //$NON-NLS-1$
-                System.out.println("handleErrorMessage(post) ");
+                System.out.println("handleErrorMessage(post) " + locationHeader);
             } else {
                 //				final Header locationHeader = post.getResponseHeader("location"); //$NON-NLS-1$
                 // parse issue key from issue URL

@@ -11,13 +11,15 @@ import com.atlassian.jira.rpc.soap.client.RemoteIssue;
 import com.atlassian.jira.rpc.soap.client.RemoteProject;
 import com.atlassian.jira.rpc.soap.client.RemoteUser;
 import com.lxit.entity.Homework;
+import com.lxitedu.service.jira.project.HomeworkRemoteProjectBuilder;
+import com.lxitedu.service.jira.project.RemoteProjectBuilder;
 
 public class HomeworkJiraService {
 
     private static final String GROUP_TEAM_PREFIX = "team";
     private static final int MAX_TEAM_COUNT_FROM_CLASS = 5;
     private static final String ISSUE_HOMEWORK_TYPE = "6";
-    private static final String HORMWORK_PROJECT_PREFIX = "HOMEWORK";
+    public static final String HORMWORK_PROJECT_PREFIX = "HW";
     public static final String SUBTASK_ISSUE_TYPE = "5";
 
     public RemoteIssue createCommonIssue(RemoteIssue issue) {
@@ -33,23 +35,24 @@ public class HomeworkJiraService {
             System.out.println("create Team Homemork: TeacherKey:" + teacherIssue.getKey() + "subIssueKey:"
                     + subIssueKey);
             for (int j = 0; j < users.length; j++) {
-                createLinkedIssueFromIssueKeyAndUser(subIssueKey, teacherIssue, users[i]);
+                createLinkedIssueFromIssueKeyAndUser(subIssueKey, teacherIssue, users[j]);
             }
             Thread.sleep(100);
         }
 
     }
 
-    public void createLinkedIssueFromIssueKeyAndUser(String subIssueKey, RemoteIssue teacherIssue, RemoteUser remoteUser) {
+    public void createLinkedIssueFromIssueKeyAndUser(String subIssueKey, RemoteIssue teacherIssue, RemoteUser remoteUser)
+            throws Exception {
         RemoteIssue issue = new RemoteIssue();
         issue.setProject(teacherIssue.getProject());
         issue.setDescription(teacherIssue.getDescription());
         issue.setReporter("admin");
         issue.setAssignee(remoteUser.getName());
-        issue.setSummary(teacherIssue.getSummary());
+        issue.setSummary(teacherIssue.getSummary() + "--" + remoteUser.getFullname());
         issue.setType(ISSUE_HOMEWORK_TYPE);
         RemoteIssue createCommonIssue = createCommonIssue(issue);
-
+        Thread.sleep(100);
         RemoteIssue getIssue = getIssueByKey(subIssueKey);
 
         IssueLink isuseLink = new IssueLink();
@@ -134,4 +137,12 @@ public class HomeworkJiraService {
             LxitJiraManager.createGroup(getTeamNameFromClassNameAndNo(className, i + 1));
         }
     }
+
+    public void createHomeworkProject(String className) {
+        RemoteProjectBuilder builder = new HomeworkRemoteProjectBuilder();
+        builder.setClassName(className);
+        RemoteProject createRemoteProject = builder.createRemoteProject();
+
+    }
+
 }

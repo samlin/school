@@ -67,6 +67,11 @@ public class LxClassAction extends BaseAdminAction {
         return SUCCESS;
     }
 
+    public String homeworkProject() {
+        lxitJiraService.createDayLogProject(id);
+        return SUCCESS;
+    }
+
     // 保存
     //	@Validations(
     //		requiredStrings = { 

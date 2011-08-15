@@ -5,6 +5,7 @@ import com.atlassian.jira.rpc.soap.client.RemotePermission;
 import com.atlassian.jira.rpc.soap.client.RemotePermissionScheme;
 import com.atlassian.jira.rpc.soap.client.RemoteProject;
 import com.atlassian.jira.rpc.soap.client.RemoteUser;
+import com.lxitedu.jira.http.HomeworkJiraService;
 
 public class HomeworkRemoteProjectBuilder extends RemoteProjectBuilder {
 
@@ -35,7 +36,7 @@ public class HomeworkRemoteProjectBuilder extends RemoteProjectBuilder {
     public void createDetailPermission(RemotePermissionScheme remotePermissionScheme) throws Exception {
         RemoteGroup classGroup = j.getGroup(a, getClassName());
         j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 10L), classGroup);
-        j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 11L), classGroup);
+        j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 17L), classGroup);
         j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 12L), classGroup);
         j.addPermissionTo(a, remotePermissionScheme, new RemotePermission("", 15L), classGroup);
 
@@ -148,6 +149,6 @@ public class HomeworkRemoteProjectBuilder extends RemoteProjectBuilder {
 
     @Override
     public String getProjectKeyFromClassName() {
-        return "HW" + getClassName();
+        return HomeworkJiraService.HORMWORK_PROJECT_PREFIX + getClassName();
     }
 }

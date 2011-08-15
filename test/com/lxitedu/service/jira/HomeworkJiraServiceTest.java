@@ -53,7 +53,7 @@ public class HomeworkJiraServiceTest {
         Assert.assertEquals("10000", tt.getId());
     }
 
-    //    @Test
+    @Test
     public void testCreateAllIssueByHomework() throws Exception {
         Homework homework = new Homework();
         homework.setClassId("1001");
@@ -76,8 +76,13 @@ public class HomeworkJiraServiceTest {
         service.createLinkedIssueFromIssueKeyAndUser(subIssueKey, teacherIssue, remoteUser);
     }
 
-    @Test
+    //    @Test
     public void testCreateTeamsFromClass() throws Exception {
         service.createTeamsFromClassName("1002");
+    }
+
+    //    @Test
+    public void testCreateHomeworkProject() throws Exception {
+        service.createHomeworkProject("1003");
     }
 }
