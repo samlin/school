@@ -43,6 +43,15 @@
 			<dd>
 				<a href="homework!list.action" target="mainFrame">作业列表</a>
 			</dd>
+			<dt>
+				<span>面试管理</span>
+			</dt>
+			<dd>
+				<a href="interview!add.action" target="mainFrame">新建面试</a>
+			</dd>
+			<dd>
+				<a href="interview!list.action" target="mainFrame">面试列表</a>
+			</dd>
 		</dl>
 	</div>
 </body>

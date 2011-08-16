@@ -103,6 +103,7 @@
 				<value>com.lxit.entity.LxClass</value>
 				<value>com.lxit.entity.Student</value>
 				<value>com.lxit.entity.Homework</value>
+				<value>com.lxit.entity.Interview</value>
 			</list>
 		</property>
 	</bean>

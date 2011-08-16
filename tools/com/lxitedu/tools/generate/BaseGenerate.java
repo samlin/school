@@ -113,6 +113,7 @@ public abstract class BaseGenerate implements Observer {
     protected static void initCommonFields() {
         // Initialize those common fields which NOT need to generate.
         exceptionFields.put("ID", "Y");
+        exceptionFields.put("id", "Y");
         exceptionFields.put("creatorID", "Y");
         exceptionFields.put("createDate", "Y");
         exceptionFields.put("updaterID", "Y");

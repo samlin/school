@@ -15,7 +15,7 @@ import com.lxitedu.dao.DBManager;
 import com.lxitedu.framework.tools.ExtendUserTool;
 import com.lxitedu.framework.tools.PinyinTools;
 
-public class LxitJiraManager {
+public class LxitJiraManager extends SuperJiraUtil {
     private static final long PERMISSION_ASSIGNABLE = 17L;
     private static final long PERMISSION_BROWSE = 10L;
     private static final long PERMISSION_CREATE_ISSUE = 11L;
@@ -26,8 +26,6 @@ public class LxitJiraManager {
     private static final long PERMISSION_RESOLVE_ISSUE = 14L;
 
     private static final String TEACHER_GROUP_NAME = "lxit";
-    private static JiraSoapService j = JiraTools.getJiraSoapService();
-    private static String a = JiraTools.getAuth();;
     private static List<String> classList;
 
     public static void main(String[] args) {
