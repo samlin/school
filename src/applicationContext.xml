@@ -104,6 +104,11 @@
 				<value>com.lxit.entity.Student</value>
 				<value>com.lxit.entity.Homework</value>
 				<value>com.lxit.entity.Interview</value>
+				<value>com.lxit.entity.Ip</value>
+				<value>com.lxit.entity.LxClass</value>
+				<value>com.lxit.entity.Groupes</value>
+				<value>com.lxit.entity.Subject</value>
+				<value>com.lxit.entity.Inc</value>
 			</list>
 		</property>
 	</bean>

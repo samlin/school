@@ -22,6 +22,19 @@
 				<a href="lx_class!add.action" target="mainFrame">新增班级</a>
 			</dd>
 		</dl>
+		
+		<dl>
+			<dt>
+				<span>租管理</span>
+			</dt>
+			<dd>
+				<a href="group!list.action" target="mainFrame">小组列表</a>
+			</dd>
+			<dd>
+				<a href="group!add.action" target="mainFrame">新建小组</a>
+			</dd>
+		</dl>
+		
 		<dl>
 			<dt>
 				<span>学生管理</span>
@@ -32,6 +45,15 @@
 			<dd>
 				<a href="student!add.action" target="mainFrame">新建学生</a>
 			</dd>
+			
+			<dd>
+				<a href="ip!list.action" target="mainFrame">学生Ip</a>
+			</dd>
+			<dd>
+				<a href="ip!add.action" target="mainFrame">新建学生Ip</a>
+			</dd>
+			
+			
 		</dl>
 		<dl>
 			<dt>
@@ -43,15 +65,8 @@
 			<dd>
 				<a href="homework!list.action" target="mainFrame">作业列表</a>
 			</dd>
-			<dt>
-				<span>面试管理</span>
-			</dt>
-			<dd>
-				<a href="interview!add.action" target="mainFrame">新建面试</a>
-			</dd>
-			<dd>
-				<a href="interview!list.action" target="mainFrame">面试列表</a>
-			</dd>
+		
+		
 		</dl>
 	</div>
 </body>

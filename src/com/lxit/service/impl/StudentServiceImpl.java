@@ -1,5 +1,7 @@
 package com.lxit.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -24,4 +26,8 @@ public class StudentServiceImpl extends BaseServiceImpl<Student, String> impleme
         super.setBaseDao(studentDao);
     }
 
+    @Override
+    public List<Student> getStudentList(String groupName, String className) {
+        return studentDao.getStudentList(groupName, className);
+    }
 }

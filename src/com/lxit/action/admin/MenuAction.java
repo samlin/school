@@ -56,4 +56,8 @@ public class MenuAction extends BaseAdminAction {
         return "school";
     }
 
+    public String graduate() {
+        return "graduate";
+    }
+
 }
